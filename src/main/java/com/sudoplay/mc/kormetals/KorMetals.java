@@ -1,6 +1,7 @@
 package com.sudoplay.mc.kormetals;
 
 import com.sudoplay.mc.kor.spi.Kor;
+import com.sudoplay.mc.kormetals.module.ore.KorMetalsModuleOre;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -16,8 +17,8 @@ import static net.minecraftforge.fml.common.Mod.Instance;
 public class KorMetals extends
     Kor {
 
-  public static final String MOD_ID = "kormetals";
-  public static final String VERSION = "@VERSION@";
+  public static final String MOD_ID = "ctkormetals";
+  public static final String VERSION = "snapshot";
   public static final String NAME = "Kor Metals";
   public static final double JSON_CONFIGS_VERSION = 1.0;
 
@@ -50,6 +51,7 @@ public class KorMetals extends
 
     this.registerModules(
         // Register modules here
+        new KorMetalsModuleOre()
     );
 
     super.onPreInitialization(event);

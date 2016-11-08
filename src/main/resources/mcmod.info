@@ -1,16 +1,16 @@
 [
 {
-  "modid": "kormetals",
-  "name": "Kor Metals",
-  "description": "Kor Metals",
+  "modid": "ctkormetals",
+  "name": "CT Kor Metals",
+  "description": "CT Kor Metals",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["sk3lls"],
+  "authorList": ["codetaylor"],
   "credits": "The Forge and FML guys, for making Forge and FML",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": ["sk3lls-kor-library"]
+  "dependencies": ["ctkorlib"]
 }
 ]
