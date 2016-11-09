@@ -1,7 +1,7 @@
 package com.sudoplay.mc.kormetals;
 
 import com.sudoplay.mc.kor.spi.Kor;
-import com.sudoplay.mc.kormetals.module.ore.KorMetalsModuleOre;
+import com.sudoplay.mc.kormetals.module.ore.ModuleOre;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -51,7 +51,7 @@ public class KorMetals extends
 
     this.registerModules(
         // Register modules here
-        new KorMetalsModuleOre()
+        new ModuleOre()
     );
 
     super.onPreInitialization(event);

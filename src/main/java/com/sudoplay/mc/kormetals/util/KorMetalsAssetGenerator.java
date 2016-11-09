@@ -1,7 +1,7 @@
 package com.sudoplay.mc.kormetals.util;
 
 import com.sudoplay.mc.kor.core.generation.AssetGenerator;
-import com.sudoplay.mc.kormetals.module.ore.KorMetalsModuleOre;
+import com.sudoplay.mc.kormetals.module.ore.ModuleOre;
 
 /**
  * Created by sk3lls on 11/7/2016.
@@ -14,6 +14,6 @@ public class KorMetalsAssetGenerator {
         "subprojects/kor-metals/src/main/resources/assets/ctkormetals"
     );
 
-    generator.generate(new KorMetalsModuleOre());
+    generator.generate(new ModuleOre());
   }
 }

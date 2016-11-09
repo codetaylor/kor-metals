@@ -24,7 +24,7 @@ public class KorMetalsImageSlicer {
 
   public void slice() {
 
-    this.filenames = this.imageSlicer.createFilenames(
+    this.filenames = createFilenames(
         new String[]{"copper", "tin", "silver", "lead", "nickel", "platinum", "brass", "invar", "electrum", "signalum", "lumium", "enderium"},
         new String[]{"ingot", "nugget", "powder", "block", "gear", "plate", "ore", "nether_ore", "helmet", "chestplate", "leggings", "boots", "axe", "hoe", "pickaxe", "shovel", "sword", "shears"}
     );
@@ -45,6 +45,21 @@ public class KorMetalsImageSlicer {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  public String[] createFilenames(String[] cols, String[] rows) {
+
+    String[] filenames = new String[cols.length * rows.length];
+
+    for (int x = 0; x < cols.length; x++) {
+
+      for (int y = 0; y < rows.length; y++) {
+
+        filenames[x + cols.length * y] = rows[y] + "_" + cols[x];
+      }
+    }
+
+    return filenames;
   }
 
   private void sliceImage(
