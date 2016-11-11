@@ -104,6 +104,26 @@ public class ModuleOreConfigAdapter implements
     adaptBoolean(category, "lumium", false, configuration, textConfigData);
     adaptBoolean(category, "signalum", false, configuration, textConfigData);
 
+    category = ModuleOre.Config.CATEGORY_RECIPE_SMELTING;
+
+    configuration.addCustomCategoryComment(
+        category,
+        "Toggle the nether ore smelting recipes."
+    );
+
+    adaptBoolean(category, "copper", true, configuration, textConfigData);
+    adaptBoolean(category, "lead", true, configuration, textConfigData);
+    adaptBoolean(category, "nickel", true, configuration, textConfigData);
+    adaptBoolean(category, "platinum", true, configuration, textConfigData);
+    adaptBoolean(category, "silver", true, configuration, textConfigData);
+    adaptBoolean(category, "tin", true, configuration, textConfigData);
+
+    adaptBoolean(category, "brass", false, configuration, textConfigData);
+    adaptBoolean(category, "electrum", false, configuration, textConfigData);
+    adaptBoolean(category, "enderium", false, configuration, textConfigData);
+    adaptBoolean(category, "invar", false, configuration, textConfigData);
+    adaptBoolean(category, "lumium", false, configuration, textConfigData);
+    adaptBoolean(category, "signalum", false, configuration, textConfigData);
   }
 
   private void adaptBoolean(String category, String key, boolean defaultValue, String comment, Configuration configuration, TextConfigData textConfigData) {

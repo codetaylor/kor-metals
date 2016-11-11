@@ -2,15 +2,13 @@ package com.sudoplay.mc.kormetals.module.ore;
 
 import com.google.common.eventbus.Subscribe;
 import com.sudoplay.mc.kor.spi.IKorModule;
-import com.sudoplay.mc.kor.spi.event.internal.OnLoadConfigurationsEvent;
-import com.sudoplay.mc.kor.spi.event.internal.OnRegisterBlocksEvent;
-import com.sudoplay.mc.kor.spi.event.internal.OnRegisterCreativeTabsEvent;
-import com.sudoplay.mc.kor.spi.event.internal.OnRegisterWorldGenEvent;
+import com.sudoplay.mc.kor.spi.event.internal.*;
 import com.sudoplay.mc.kormetals.KorMetalsCreativeTab;
-import com.sudoplay.mc.kormetals.module.ore.blocks.ore.BlockNetherOre;
-import com.sudoplay.mc.kormetals.module.ore.blocks.ore.BlockOre;
-import com.sudoplay.mc.kormetals.module.ore.world.oregen.nether.*;
-import com.sudoplay.mc.kormetals.module.ore.world.oregen.overworld.*;
+import com.sudoplay.mc.kormetals.module.ore.blocks.BlockNetherOre;
+import com.sudoplay.mc.kormetals.module.ore.blocks.BlockOre;
+import com.sudoplay.mc.kormetals.module.ore.recipe.*;
+import com.sudoplay.mc.kormetals.module.ore.world.oregen.*;
+import com.sudoplay.mc.kormetals.module.ore.worldgen.*;
 
 import java.io.File;
 
@@ -28,6 +26,7 @@ public class ModuleOre implements
     public static final String CATEGORY_ORE_NETHER = "ore:nether";
     public static final String CATEGORY_ORE_OVERWORLD_GENERATION = "ore:overworld:generation";
     public static final String CATEGORY_ORE_NETHER_GENERATION = "ore:nether:generation";
+    public static final String CATEGORY_RECIPE_SMELTING = "recipe:smelting";
 
     public static class OreGenOverworld {
       public static final String CONFIG_PATH = MODULE_ID + "/oregen/overworld";
@@ -106,6 +105,25 @@ public class ModuleOre implements
         WorldGenNetherOrePlatinum.class,
         WorldGenNetherOreSilver.class,
         WorldGenNetherOreTin.class
+    );
+  }
+
+  @Subscribe
+  public void onRegisterRecipesEvent(OnRegisterRecipesEvent event) {
+    event.getRegistryService().register(
+
+        SmeltingNetherOreBrass.class,
+        SmeltingNetherOreCopper.class,
+        SmeltingNetherOreElectrum.class,
+        SmeltingNetherOreEnderium.class,
+        SmeltingNetherOreInvar.class,
+        SmeltingNetherOreLead.class,
+        SmeltingNetherOreLumium.class,
+        SmeltingNetherOreNickel.class,
+        SmeltingNetherOrePlatinum.class,
+        SmeltingNetherOreSignalum.class,
+        SmeltingNetherOreSilver.class,
+        SmeltingNetherOreTin.class
     );
   }
 }
