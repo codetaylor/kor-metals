@@ -11,6 +11,7 @@ public class KorMetalsAssetGenerator {
   public static void main(String... args) {
 
     AssetGenerator generator = new AssetGenerator(
+        "subprojects/kor-metals/assets",
         "subprojects/kor-metals/src/main/resources/assets/ctkormetals"
     );
 

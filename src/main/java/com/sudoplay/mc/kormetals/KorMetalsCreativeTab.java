@@ -14,7 +14,7 @@ import javax.annotation.Nonnull;
  * Created by sk3lls on 11/7/2016.
  */
 @KorGenerateLangEntries(entries = {
-    @KorLangEntry(key = "itemGroup." + KorMetals.MOD_ID + "_tab.name", value = "CTKor Metals")
+    @KorLangEntry(key = "itemGroup." + KorMetals.MOD_ID + "_tab", value = "CTKor Metals")
 })
 public class KorMetalsCreativeTab extends
     CreativeTabs {

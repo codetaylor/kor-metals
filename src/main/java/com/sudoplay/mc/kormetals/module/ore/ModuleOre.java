@@ -7,14 +7,10 @@ import com.sudoplay.mc.kor.spi.event.internal.OnRegisterBlocksEvent;
 import com.sudoplay.mc.kor.spi.event.internal.OnRegisterCreativeTabsEvent;
 import com.sudoplay.mc.kor.spi.event.internal.OnRegisterWorldGenEvent;
 import com.sudoplay.mc.kormetals.KorMetalsCreativeTab;
-import com.sudoplay.mc.kormetals.module.ore.blocks.ore.netherrack.alloy.*;
-import com.sudoplay.mc.kormetals.module.ore.blocks.ore.netherrack.regular.*;
-import com.sudoplay.mc.kormetals.module.ore.blocks.ore.stone.alloy.*;
-import com.sudoplay.mc.kormetals.module.ore.blocks.ore.stone.regular.*;
-import com.sudoplay.mc.kormetals.module.ore.world.oregen.netherrack.alloy.*;
-import com.sudoplay.mc.kormetals.module.ore.world.oregen.netherrack.regular.*;
-import com.sudoplay.mc.kormetals.module.ore.world.oregen.stone.alloy.*;
-import com.sudoplay.mc.kormetals.module.ore.world.oregen.stone.regular.*;
+import com.sudoplay.mc.kormetals.module.ore.blocks.ore.BlockNetherOre;
+import com.sudoplay.mc.kormetals.module.ore.blocks.ore.BlockOre;
+import com.sudoplay.mc.kormetals.module.ore.world.oregen.nether.*;
+import com.sudoplay.mc.kormetals.module.ore.world.oregen.overworld.*;
 
 import java.io.File;
 
@@ -28,8 +24,18 @@ public class ModuleOre implements
 
   public static class Config {
     public static final String FILENAME = MODULE_ID + "/" + MODULE_ID + ".cfg";
-    public static final String CATEGORY_ORE = "Ore";
-    public static final String CATEGORY_ORE_GENERATION = "Ore Generation";
+    public static final String CATEGORY_ORE_OVERWORLD = "ore:overworld";
+    public static final String CATEGORY_ORE_NETHER = "ore:nether";
+    public static final String CATEGORY_ORE_OVERWORLD_GENERATION = "ore:overworld:generation";
+    public static final String CATEGORY_ORE_NETHER_GENERATION = "ore:nether:generation";
+
+    public static class OreGenOverworld {
+      public static final String CONFIG_PATH = MODULE_ID + "/oregen/overworld";
+    }
+
+    public static class OreGenNether {
+      public static final String CONFIG_PATH = MODULE_ID + "/oregen/nether";
+    }
   }
 
   @Override
@@ -60,37 +66,8 @@ public class ModuleOre implements
   public void onRegisterBlocksEvent(OnRegisterBlocksEvent event) {
     event.getRegistryService().register(
 
-        // Alloy ores
-        BlockOreBrass.class,
-        BlockOreElectrum.class,
-        BlockOreEnderium.class,
-        BlockOreInvar.class,
-        BlockOreLumium.class,
-        BlockOreSignalum.class,
-
-        // Regular ores
-        BlockOreCopper.class,
-        BlockOreLead.class,
-        BlockOreNickel.class,
-        BlockOrePlatinum.class,
-        BlockOreSilver.class,
-        BlockOreTin.class,
-
-        // Nether Alloy Ores
-        BlockNetherOreBrass.class,
-        BlockNetherOreElectrum.class,
-        BlockNetherOreEnderium.class,
-        BlockNetherOreInvar.class,
-        BlockNetherOreLumium.class,
-        BlockNetherOreSignalum.class,
-
-        // Nether Regular Ores
-        BlockNetherOreCopper.class,
-        BlockNetherOreLead.class,
-        BlockNetherOreNickel.class,
-        BlockNetherOrePlatinum.class,
-        BlockNetherOreSilver.class,
-        BlockNetherOreTin.class
+        BlockOre.class,
+        BlockNetherOre.class
     );
   }
 
