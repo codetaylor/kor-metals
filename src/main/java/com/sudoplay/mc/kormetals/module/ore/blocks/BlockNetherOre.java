@@ -6,6 +6,7 @@ import com.sudoplay.mc.kor.core.generation.annotation.*;
 import com.sudoplay.mc.kor.spi.Kor;
 import com.sudoplay.mc.kor.spi.block.KorSubTypedEnumBlock;
 import com.sudoplay.mc.kor.spi.config.json.KorConfigObject;
+import com.sudoplay.mc.kor.spi.registry.KorOreDictionaryEntry;
 import com.sudoplay.mc.kor.spi.registry.injection.KorInject;
 import com.sudoplay.mc.kor.spi.registry.injection.KorJsonConfig;
 import com.sudoplay.mc.kor.spi.registry.injection.KorTextConfig;
@@ -25,6 +26,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.sudoplay.mc.kormetals.shared.MetalType.*;
@@ -151,6 +153,19 @@ public class BlockNetherOre extends
 
   private static boolean isEnabled(String key, TextConfigData configData) {
     return configData.getCategory(ModuleOre.Config.CATEGORY_ORE_NETHER).getBoolean(key);
+  }
+
+  @Override
+  @Nonnull
+  public List<KorOreDictionaryEntry> getKorOreDictionaryEntries(@Nonnull List<KorOreDictionaryEntry> store) {
+    MetalType[] metalTypes = MetalType.values();
+
+    for (MetalType metalType : metalTypes) {
+      String name = metalType.getName();
+      name = "ore" + name.substring(0, 1).toUpperCase() + name.substring(1);
+      store.add(new KorOreDictionaryEntry(name, metalType.getMeta()));
+    }
+    return store;
   }
 
   @Override

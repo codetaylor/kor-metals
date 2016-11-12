@@ -7,7 +7,6 @@ import com.sudoplay.mc.kormetals.KorMetalsCreativeTab;
 import com.sudoplay.mc.kormetals.module.ore.blocks.BlockNetherOre;
 import com.sudoplay.mc.kormetals.module.ore.blocks.BlockOre;
 import com.sudoplay.mc.kormetals.module.ore.recipe.*;
-import com.sudoplay.mc.kormetals.module.ore.world.oregen.*;
 import com.sudoplay.mc.kormetals.module.ore.worldgen.*;
 
 import java.io.File;
