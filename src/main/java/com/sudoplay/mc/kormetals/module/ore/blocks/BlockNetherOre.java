@@ -13,7 +13,7 @@ import com.sudoplay.mc.kor.spi.registry.injection.KorTextConfig;
 import com.sudoplay.mc.kormetals.KorMetals;
 import com.sudoplay.mc.kormetals.KorMetalsCreativeTab;
 import com.sudoplay.mc.kormetals.module.ore.ModuleOre;
-import com.sudoplay.mc.kormetals.module.ore.core.OreConfigEntry;
+import com.sudoplay.mc.kormetals.module.ore.config.ConfigOreEntry;
 import com.sudoplay.mc.kormetals.shared.MetalType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -71,18 +71,18 @@ import static com.sudoplay.mc.kormetals.shared.MetalType.*;
 })
 
 @KorGenerateImageSlices(slices = {
-    @KorImageSliceEntry(col = 6, row = 7, target = "blocks/nether_ore_brass", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 0, row = 7, target = "blocks/nether_ore_copper", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 8, row = 7, target = "blocks/nether_ore_electrum", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 11, row = 7, target = "blocks/nether_ore_enderium", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 7, row = 7, target = "blocks/nether_ore_invar", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 3, row = 7, target = "blocks/nether_ore_lead", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 10, row = 7, target = "blocks/nether_ore_lumium", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 4, row = 7, target = "blocks/nether_ore_nickel", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 5, row = 7, target = "blocks/nether_ore_platinum", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 9, row = 7, target = "blocks/nether_ore_signalum", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 2, row = 7, target = "blocks/nether_ore_silver", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 1, row = 7, target = "blocks/nether_ore_tin", source = "KorMetals.png")
+    @KorImageSliceEntry(col = 7, row = 8, target = "blocks/nether_ore_brass", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 1, row = 8, target = "blocks/nether_ore_copper", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 9, row = 8, target = "blocks/nether_ore_electrum", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 12, row = 8, target = "blocks/nether_ore_enderium", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 8, row = 8, target = "blocks/nether_ore_invar", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 4, row = 8, target = "blocks/nether_ore_lead", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 11, row = 8, target = "blocks/nether_ore_lumium", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 5, row = 8, target = "blocks/nether_ore_nickel", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 6, row = 8, target = "blocks/nether_ore_platinum", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 10, row = 8, target = "blocks/nether_ore_signalum", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 3, row = 8, target = "blocks/nether_ore_silver", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 2, row = 8, target = "blocks/nether_ore_tin", source = "KorMetals.png")
 })
 
 public class BlockNetherOre extends
@@ -91,26 +91,26 @@ public class BlockNetherOre extends
   private static class Config extends
       KorConfigObject {
 
-    @SerializedName("nether_ore")
-    private Map<MetalType, OreConfigEntry> oreConfigEntryMap;
+    @SerializedName("nether_ore_properties")
+    private Map<MetalType, ConfigOreEntry> oreConfigEntryMap;
 
     public Config() {
       this.oreConfigEntryMap = new EnumMap<>(MetalType.class);
-      this.oreConfigEntryMap.put(Brass, new OreConfigEntry(3.0f, 5.0f, 3));
-      this.oreConfigEntryMap.put(Copper, new OreConfigEntry(3.0f, 5.0f, 1));
-      this.oreConfigEntryMap.put(Electrum, new OreConfigEntry(3.0f, 5.0f, 3));
-      this.oreConfigEntryMap.put(Enderium, new OreConfigEntry(3.0f, 5.0f, 3));
-      this.oreConfigEntryMap.put(Invar, new OreConfigEntry(3.0f, 5.0f, 3));
-      this.oreConfigEntryMap.put(Lead, new OreConfigEntry(3.0f, 5.0f, 2));
-      this.oreConfigEntryMap.put(Lumium, new OreConfigEntry(3.0f, 5.0f, 3));
-      this.oreConfigEntryMap.put(Nickel, new OreConfigEntry(3.0f, 5.0f, 2));
-      this.oreConfigEntryMap.put(Platinum, new OreConfigEntry(3.0f, 5.0f, 2));
-      this.oreConfigEntryMap.put(Signalum, new OreConfigEntry(3.0f, 5.0f, 3));
-      this.oreConfigEntryMap.put(Silver, new OreConfigEntry(3.0f, 5.0f, 2));
-      this.oreConfigEntryMap.put(Tin, new OreConfigEntry(3.0f, 5.0f, 1));
+      this.oreConfigEntryMap.put(Brass, new ConfigOreEntry(3.0f, 5.0f, 3));
+      this.oreConfigEntryMap.put(Copper, new ConfigOreEntry(3.0f, 5.0f, 1));
+      this.oreConfigEntryMap.put(Electrum, new ConfigOreEntry(3.0f, 5.0f, 3));
+      this.oreConfigEntryMap.put(Enderium, new ConfigOreEntry(3.0f, 5.0f, 3));
+      this.oreConfigEntryMap.put(Invar, new ConfigOreEntry(3.0f, 5.0f, 3));
+      this.oreConfigEntryMap.put(Lead, new ConfigOreEntry(3.0f, 5.0f, 2));
+      this.oreConfigEntryMap.put(Lumium, new ConfigOreEntry(3.0f, 5.0f, 3));
+      this.oreConfigEntryMap.put(Nickel, new ConfigOreEntry(3.0f, 5.0f, 2));
+      this.oreConfigEntryMap.put(Platinum, new ConfigOreEntry(3.0f, 5.0f, 2));
+      this.oreConfigEntryMap.put(Signalum, new ConfigOreEntry(3.0f, 5.0f, 3));
+      this.oreConfigEntryMap.put(Silver, new ConfigOreEntry(3.0f, 5.0f, 2));
+      this.oreConfigEntryMap.put(Tin, new ConfigOreEntry(3.0f, 5.0f, 1));
     }
 
-    public OreConfigEntry get(MetalType key) {
+    public ConfigOreEntry get(MetalType key) {
       return this.oreConfigEntryMap.get(key);
     }
   }
@@ -122,7 +122,7 @@ public class BlockNetherOre extends
   @KorInject
   public BlockNetherOre(
       Kor kor,
-      @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "nether_ore.json") Config config,
+      @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "nether_ore_properties.json") Config config,
       @KorTextConfig(path = ModuleOre.MODULE_ID, file = ModuleOre.MODULE_ID + ".cfg") TextConfigData configData
   ) {
     super(

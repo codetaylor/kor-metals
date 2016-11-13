@@ -21,11 +21,11 @@ public class ModuleOre implements
 
   public static class Config {
     public static final String FILENAME = MODULE_ID + "/" + MODULE_ID + ".cfg";
-    public static final String CATEGORY_ORE_OVERWORLD = "ore:overworld";
-    public static final String CATEGORY_ORE_NETHER = "ore:nether";
-    public static final String CATEGORY_ORE_OVERWORLD_GENERATION = "ore:overworld:generation";
-    public static final String CATEGORY_ORE_NETHER_GENERATION = "ore:nether:generation";
-    public static final String CATEGORY_RECIPE_SMELTING = "recipe:smelting";
+    public static final String CATEGORY_ORE_OVERWORLD = "1:ore:overworld";
+    public static final String CATEGORY_ORE_NETHER = "2:ore:nether";
+    public static final String CATEGORY_ORE_OVERWORLD_GENERATION = "3:ore:overworld:generation";
+    public static final String CATEGORY_ORE_NETHER_GENERATION = "4:ore:nether:generation";
+    public static final String CATEGORY_RECIPE_SMELTING = "5:recipe:smelting";
 
     public static class OreGenOverworld {
       public static final String CONFIG_PATH = MODULE_ID + "/oregen/overworld";
@@ -111,6 +111,7 @@ public class ModuleOre implements
   public void onRegisterRecipesEvent(OnRegisterRecipesEvent event) {
     event.getRegistryService().register(
 
+        // Smelting Nether Ore
         SmeltingNetherOreBrass.class,
         SmeltingNetherOreCopper.class,
         SmeltingNetherOreElectrum.class,
