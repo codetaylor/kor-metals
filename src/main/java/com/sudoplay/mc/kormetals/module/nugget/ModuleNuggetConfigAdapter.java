@@ -1,4 +1,4 @@
-package com.sudoplay.mc.kormetals.module.ingot;
+package com.sudoplay.mc.kormetals.module.nugget;
 
 import com.sudoplay.mc.kor.core.config.text.TextConfigData;
 import com.sudoplay.mc.kor.spi.config.forge.KorForgeConfigurationAdapter;
@@ -7,19 +7,19 @@ import net.minecraftforge.common.config.Configuration;
 /**
  * Created by sk3lls on 11/12/2016.
  */
-public class ModuleIngotConfigAdapter implements
+public class ModuleNuggetConfigAdapter implements
     KorForgeConfigurationAdapter<TextConfigData> {
 
   @Override
   public void adapt(Configuration configuration, TextConfigData textConfigData) {
     String category;
 
-    category = ModuleIngot.Config.CATEGORY_INGOT;
+    category = ModuleNugget.Config.CATEGORY_NUGGET;
 
     configuration.addCustomCategoryComment(
         category,
-        "Ingots toggled off here will not be loaded. Consequently, disabled\n" +
-            "ingots will also have their ore to ingot smelting recipes removed."
+        "Nuggets toggled off here will not be loaded. Consequently, disabled\n" +
+            "nuggets will also have their ingot to nugget recipes removed."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);
@@ -36,32 +36,11 @@ public class ModuleIngotConfigAdapter implements
     adaptBoolean(category, "lumium", true, configuration, textConfigData);
     adaptBoolean(category, "signalum", true, configuration, textConfigData);
 
-    category = ModuleIngot.Config.CATEGORY_RECIPE_SMELTING;
+    category = ModuleNugget.Config.CATEGORY_RECIPE_INGOT;
 
     configuration.addCustomCategoryComment(
         category,
-        "Toggle ore -> ingot smelting recipes here."
-    );
-
-    adaptBoolean(category, "copper", true, configuration, textConfigData);
-    adaptBoolean(category, "lead", true, configuration, textConfigData);
-    adaptBoolean(category, "nickel", true, configuration, textConfigData);
-    adaptBoolean(category, "platinum", true, configuration, textConfigData);
-    adaptBoolean(category, "silver", true, configuration, textConfigData);
-    adaptBoolean(category, "tin", true, configuration, textConfigData);
-
-    adaptBoolean(category, "brass", false, configuration, textConfigData);
-    adaptBoolean(category, "electrum", false, configuration, textConfigData);
-    adaptBoolean(category, "enderium", false, configuration, textConfigData);
-    adaptBoolean(category, "invar", false, configuration, textConfigData);
-    adaptBoolean(category, "lumium", false, configuration, textConfigData);
-    adaptBoolean(category, "signalum", false, configuration, textConfigData);
-
-    category = ModuleIngot.Config.CATEGORY_RECIPE_NUGGET;
-
-    configuration.addCustomCategoryComment(
-        category,
-        "Toggle nugget -> ingot recipes here."
+        "The recipes to craft ingots into nuggets can be toggled here."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);
@@ -83,4 +62,5 @@ public class ModuleIngotConfigAdapter implements
     boolean value = configuration.get(category, key, defaultValue).getBoolean();
     textConfigData.getCategory(category).putBoolean(key, value);
   }
+
 }

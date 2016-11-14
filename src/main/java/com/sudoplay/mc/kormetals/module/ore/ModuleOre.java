@@ -6,7 +6,7 @@ import com.sudoplay.mc.kor.spi.event.internal.*;
 import com.sudoplay.mc.kormetals.KorMetalsCreativeTab;
 import com.sudoplay.mc.kormetals.module.ore.blocks.BlockNetherOre;
 import com.sudoplay.mc.kormetals.module.ore.blocks.BlockOre;
-import com.sudoplay.mc.kormetals.module.ore.recipe.*;
+import com.sudoplay.mc.kormetals.module.ore.recipe.RecipeSmeltingNetherOreDelegate;
 import com.sudoplay.mc.kormetals.module.ore.worldgen.*;
 
 import java.io.File;
@@ -112,18 +112,7 @@ public class ModuleOre implements
     event.getRegistryService().register(
 
         // Smelting Nether Ore
-        SmeltingNetherOreBrass.class,
-        SmeltingNetherOreCopper.class,
-        SmeltingNetherOreElectrum.class,
-        SmeltingNetherOreEnderium.class,
-        SmeltingNetherOreInvar.class,
-        SmeltingNetherOreLead.class,
-        SmeltingNetherOreLumium.class,
-        SmeltingNetherOreNickel.class,
-        SmeltingNetherOrePlatinum.class,
-        SmeltingNetherOreSignalum.class,
-        SmeltingNetherOreSilver.class,
-        SmeltingNetherOreTin.class
+        RecipeSmeltingNetherOreDelegate.class
     );
   }
 }

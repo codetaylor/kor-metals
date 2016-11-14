@@ -23,7 +23,8 @@ public class ModuleOreConfigAdapter implements
     configuration.addCustomCategoryComment(
         category,
         "Turning off an ore here will prevent it from being loaded and also\n" +
-            "prevent the ore from spawning in the world."
+            "prevent the ore from spawning in the world. To edit each ore's properties,\n" +
+            "see ore_properties.json."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);
@@ -45,7 +46,8 @@ public class ModuleOreConfigAdapter implements
     configuration.addCustomCategoryComment(
         category,
         "Turning off an ore here will prevent it from being loaded and also\n" +
-            "prevent the ore from spawning in the world."
+            "prevent the ore from spawning in the world. To edit each ore's properties,\n" +
+            "see nether_ore_properties.json."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);
@@ -66,7 +68,8 @@ public class ModuleOreConfigAdapter implements
 
     configuration.addCustomCategoryComment(
         category,
-        "Toggle ore generation for Dimension 0 (Overworld)."
+        "Toggle ore generation for Dimension 0 (Overworld). To edit ore\n" +
+            "generation properties, look in the oregen folder."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);
@@ -87,7 +90,8 @@ public class ModuleOreConfigAdapter implements
 
     configuration.addCustomCategoryComment(
         category,
-        "Toggle ore generation for Dimension -1 (Nether)."
+        "Toggle ore generation for Dimension -1 (Nether). To edit ore\n" +
+            "generation properties, look in the oregen folder."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);

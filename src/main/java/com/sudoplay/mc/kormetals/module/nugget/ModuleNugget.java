@@ -1,29 +1,27 @@
-package com.sudoplay.mc.kormetals.module.ingot;
+package com.sudoplay.mc.kormetals.module.nugget;
 
 import com.google.common.eventbus.Subscribe;
 import com.sudoplay.mc.kor.spi.IKorModule;
 import com.sudoplay.mc.kor.spi.event.internal.OnLoadConfigurationsEvent;
 import com.sudoplay.mc.kor.spi.event.internal.OnRegisterItemsEvent;
 import com.sudoplay.mc.kor.spi.event.internal.OnRegisterRecipesEvent;
-import com.sudoplay.mc.kormetals.module.ingot.item.ItemIngot;
-import com.sudoplay.mc.kormetals.module.ingot.recipe.RecipeShapelessIngotDelegate;
-import com.sudoplay.mc.kormetals.module.ingot.recipe.RecipeSmeltingIngotDelegate;
+import com.sudoplay.mc.kormetals.module.nugget.item.ItemNugget;
+import com.sudoplay.mc.kormetals.module.nugget.recipe.RecipeShapelessNuggetDelegate;
 
 import java.io.File;
 
 /**
- * Created by sk3lls on 11/12/2016.
+ * Created by sk3lls on 11/13/2016.
  */
-public class ModuleIngot implements
+public class ModuleNugget implements
     IKorModule {
 
-  public static final String MODULE_ID = "module_ingot";
+  public static final String MODULE_ID = "module_nugget";
 
   public static class Config {
     public static final String FILENAME = MODULE_ID + "/" + MODULE_ID + ".cfg";
-    public static final String CATEGORY_INGOT = "1:ingot";
-    public static final String CATEGORY_RECIPE_SMELTING = "2:recipe:smelting";
-    public static final String CATEGORY_RECIPE_NUGGET = "3:recipe:nugget";
+    public static final String CATEGORY_NUGGET = "1:nugget";
+    public static final String CATEGORY_RECIPE_INGOT = "2:recipe:ingot";
   }
 
   @Override
@@ -37,7 +35,7 @@ public class ModuleIngot implements
 
         .loadConfiguration(
             new File(Config.FILENAME),
-            new ModuleIngotConfigAdapter()
+            new ModuleNuggetConfigAdapter()
         );
   }
 
@@ -45,7 +43,7 @@ public class ModuleIngot implements
   public void onRegisterItems(OnRegisterItemsEvent event) {
     event.getRegistryService().register(
 
-        ItemIngot.class
+        ItemNugget.class
     );
   }
 
@@ -53,8 +51,8 @@ public class ModuleIngot implements
   public void onRegisterRecipes(OnRegisterRecipesEvent event) {
     event.getRegistryService().register(
 
-        RecipeSmeltingIngotDelegate.class,
-        RecipeShapelessIngotDelegate.class
+        RecipeShapelessNuggetDelegate.class
     );
   }
+
 }
