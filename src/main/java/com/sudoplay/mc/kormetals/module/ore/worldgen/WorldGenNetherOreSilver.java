@@ -21,13 +21,13 @@ import com.sudoplay.mc.kormetals.shared.MetalType;
     // is the ore turned off?
     @KorTextConfigDependency(
         filename = ModuleOre.Config.FILENAME,
-        category = ModuleOre.Config.CATEGORY_ORE_NETHER,
+        category = ModuleOre.Config.CATEGORY_BLOCK_ORE_NETHER,
         key = "silver"
     ),
     // is the oregen turned off?
     @KorTextConfigDependency(
         filename = ModuleOre.Config.FILENAME,
-        category = ModuleOre.Config.CATEGORY_ORE_NETHER_GENERATION,
+        category = ModuleOre.Config.CATEGORY_WORLDGEN_ORE_NETHER,
         key = "silver"
     )
 })

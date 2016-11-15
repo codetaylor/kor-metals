@@ -21,18 +21,18 @@ public class ModuleOre implements
 
   public static class Config {
     public static final String FILENAME = MODULE_ID + "/" + MODULE_ID + ".cfg";
-    public static final String CATEGORY_ORE_OVERWORLD = "1:ore:overworld";
-    public static final String CATEGORY_ORE_NETHER = "2:ore:nether";
-    public static final String CATEGORY_ORE_OVERWORLD_GENERATION = "3:ore:overworld:generation";
-    public static final String CATEGORY_ORE_NETHER_GENERATION = "4:ore:nether:generation";
-    public static final String CATEGORY_RECIPE_SMELTING = "5:recipe:smelting";
+    public static final String CATEGORY_BLOCK_ORE_OVERWORLD = "1:block:ore_overworld";
+    public static final String CATEGORY_BLOCK_ORE_NETHER = "1:block:ore_nether";
+    public static final String CATEGORY_WORLDGEN_ORE_OVERWORLD = "1:worldgen:ore_overworld";
+    public static final String CATEGORY_WORLDGEN_ORE_NETHER = "1:worldgen:ore_nether";
+    public static final String CATEGORY_SMELTING_NETHER_ORE_TO_ORE = "1:smelting:nether_ore_to_ore";
 
     public static class OreGenOverworld {
-      public static final String CONFIG_PATH = MODULE_ID + "/oregen/overworld";
+      public static final String CONFIG_PATH = MODULE_ID + "/worldgen/ore_overworld";
     }
 
     public static class OreGenNether {
-      public static final String CONFIG_PATH = MODULE_ID + "/oregen/nether";
+      public static final String CONFIG_PATH = MODULE_ID + "/worldgen/ore_nether";
     }
   }
 

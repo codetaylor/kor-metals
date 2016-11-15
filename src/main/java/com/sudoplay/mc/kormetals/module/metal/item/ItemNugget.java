@@ -99,7 +99,7 @@ public class ItemNugget extends
   }
 
   private static boolean isEnabled(String key, TextConfigData configData) {
-    return configData.getCategory(ModuleMetal.Config.CATEGORY_NUGGET).getBoolean(key);
+    return configData.getCategory(ModuleMetal.Config.CATEGORY_ITEM_NUGGET).getBoolean(key);
   }
 
   @Override

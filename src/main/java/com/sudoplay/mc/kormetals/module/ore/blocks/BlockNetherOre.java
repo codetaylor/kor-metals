@@ -152,7 +152,7 @@ public class BlockNetherOre extends
   }
 
   private static boolean isEnabled(String key, TextConfigData configData) {
-    return configData.getCategory(ModuleOre.Config.CATEGORY_ORE_NETHER).getBoolean(key);
+    return configData.getCategory(ModuleOre.Config.CATEGORY_BLOCK_ORE_NETHER).getBoolean(key);
   }
 
   @Override

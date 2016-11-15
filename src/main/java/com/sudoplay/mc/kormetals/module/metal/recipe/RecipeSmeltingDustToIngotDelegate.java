@@ -11,24 +11,24 @@ import com.sudoplay.mc.kor.spi.registry.injection.KorTextConfig;
 import com.sudoplay.mc.kor.spi.registry.strategy.KorInitStrategy;
 import com.sudoplay.mc.kormetals.module.metal.ModuleMetal;
 import com.sudoplay.mc.kormetals.module.metal.config.ConfigSmeltingIngot;
+import com.sudoplay.mc.kormetals.module.metal.item.ItemDust;
 import com.sudoplay.mc.kormetals.module.metal.item.ItemIngot;
 import com.sudoplay.mc.kormetals.module.ore.ModuleOre;
-import com.sudoplay.mc.kormetals.module.ore.blocks.BlockOre;
 import com.sudoplay.mc.kormetals.shared.MetalType;
 
 /**
  * Created by sk3lls on 11/13/2016.
  */
-public class RecipeSmeltingIngotDelegate extends
+public class RecipeSmeltingDustToIngotDelegate extends
     KorRegistrationDelegate {
 
   private TextConfigData textConfigData;
   private ConfigSmeltingIngot config;
 
   @KorInject
-  public RecipeSmeltingIngotDelegate(
+  public RecipeSmeltingDustToIngotDelegate(
       @KorTextConfig(file = ModuleMetal.Config.FILENAME) TextConfigData textConfigData,
-      @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "smelting_nether_ore.json") ConfigSmeltingIngot config
+      @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "smelting_dust_to_ingot.json") ConfigSmeltingIngot config
   ) {
     this.textConfigData = textConfigData;
     this.config = config;
@@ -42,30 +42,31 @@ public class RecipeSmeltingIngotDelegate extends
         String name = metalType.getName();
 
         if (isRecipeEnabledInConfig(name)) {
-          new RecipeSmeltingIngot(metalType, kor, this.config).getInitStrategy().onInit(kor);
+          new RecipeSmeltingDust(metalType, kor, this.config).getInitStrategy().onInit(kor);
         }
       }
     };
   }
 
   private boolean isRecipeEnabledInConfig(String name) {
-    return this.textConfigData.getCategory(ModuleMetal.Config.CATEGORY_INGOT).getBoolean(name)
-        && this.textConfigData.getCategory(ModuleMetal.Config.CATEGORY_INGOT_RECIPE_SMELTING).getBoolean(name);
+    return this.textConfigData.getCategory(ModuleMetal.Config.CATEGORY_ITEM_INGOT).getBoolean(name)
+        && this.textConfigData.getCategory(ModuleMetal.Config.CATEGORY_ITEM_DUST).getBoolean(name)
+        && this.textConfigData.getCategory(ModuleMetal.Config.CATEGORY_SMELTING_DUST_TO_INGOT).getBoolean(name);
   }
 
   /**
    * Created by sk3lls on 11/12/2016.
    */
-  private static class RecipeSmeltingIngot extends
+  private static class RecipeSmeltingDust extends
       KorRecipeSmelting {
 
-    RecipeSmeltingIngot(
+    RecipeSmeltingDust(
         MetalType metalType,
         Kor kor,
         ConfigSmeltingIngot config
     ) {
       super(
-          KorRecipeItem.from(kor.get(BlockOre.class), 1, metalType.getMeta()),
+          KorRecipeItem.from(kor.get(ItemDust.class), 1, metalType.getMeta()),
           KorRecipeItem.from(kor.get(ItemIngot.class), config.get(metalType.getName()).getQuantity(), metalType.getMeta()),
           config.get(metalType.getName()).getXp()
       );

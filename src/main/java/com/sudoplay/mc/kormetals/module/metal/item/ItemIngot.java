@@ -99,7 +99,7 @@ public class ItemIngot extends
   }
 
   private static boolean isEnabled(String key, TextConfigData configData) {
-    return configData.getCategory(ModuleMetal.Config.CATEGORY_INGOT).getBoolean(key);
+    return configData.getCategory(ModuleMetal.Config.CATEGORY_ITEM_INGOT).getBoolean(key);
   }
 
   @Override

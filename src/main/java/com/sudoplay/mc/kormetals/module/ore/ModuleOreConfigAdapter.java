@@ -18,7 +18,7 @@ public class ModuleOreConfigAdapter implements
   private void adaptOres(Configuration configuration, TextConfigData textConfigData) {
     String category;
 
-    category = ModuleOre.Config.CATEGORY_ORE_OVERWORLD;
+    category = ModuleOre.Config.CATEGORY_BLOCK_ORE_OVERWORLD;
 
     configuration.addCustomCategoryComment(
         category,
@@ -41,7 +41,7 @@ public class ModuleOreConfigAdapter implements
     adaptBoolean(category, "lumium", false, configuration, textConfigData);
     adaptBoolean(category, "signalum", false, configuration, textConfigData);
 
-    category = ModuleOre.Config.CATEGORY_ORE_NETHER;
+    category = ModuleOre.Config.CATEGORY_BLOCK_ORE_NETHER;
 
     configuration.addCustomCategoryComment(
         category,
@@ -64,7 +64,7 @@ public class ModuleOreConfigAdapter implements
     adaptBoolean(category, "lumium", false, configuration, textConfigData);
     adaptBoolean(category, "signalum", false, configuration, textConfigData);
 
-    category = ModuleOre.Config.CATEGORY_ORE_OVERWORLD_GENERATION;
+    category = ModuleOre.Config.CATEGORY_WORLDGEN_ORE_OVERWORLD;
 
     configuration.addCustomCategoryComment(
         category,
@@ -86,7 +86,7 @@ public class ModuleOreConfigAdapter implements
     adaptBoolean(category, "lumium", false, configuration, textConfigData);
     adaptBoolean(category, "signalum", false, configuration, textConfigData);
 
-    category = ModuleOre.Config.CATEGORY_ORE_NETHER_GENERATION;
+    category = ModuleOre.Config.CATEGORY_WORLDGEN_ORE_NETHER;
 
     configuration.addCustomCategoryComment(
         category,
@@ -108,7 +108,7 @@ public class ModuleOreConfigAdapter implements
     adaptBoolean(category, "lumium", false, configuration, textConfigData);
     adaptBoolean(category, "signalum", false, configuration, textConfigData);
 
-    category = ModuleOre.Config.CATEGORY_RECIPE_SMELTING;
+    category = ModuleOre.Config.CATEGORY_SMELTING_NETHER_ORE_TO_ORE;
 
     configuration.addCustomCategoryComment(
         category,

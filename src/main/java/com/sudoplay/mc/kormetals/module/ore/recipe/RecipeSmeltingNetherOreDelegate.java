@@ -9,7 +9,6 @@ import com.sudoplay.mc.kor.spi.registry.injection.KorInject;
 import com.sudoplay.mc.kor.spi.registry.injection.KorJsonConfig;
 import com.sudoplay.mc.kor.spi.registry.injection.KorTextConfig;
 import com.sudoplay.mc.kor.spi.registry.strategy.KorInitStrategy;
-import com.sudoplay.mc.kor.spi.registry.strategy.KorPreInitStrategy;
 import com.sudoplay.mc.kormetals.module.ore.ModuleOre;
 import com.sudoplay.mc.kormetals.module.ore.blocks.BlockNetherOre;
 import com.sudoplay.mc.kormetals.module.ore.blocks.BlockOre;
@@ -28,7 +27,7 @@ public class RecipeSmeltingNetherOreDelegate extends
   @KorInject
   public RecipeSmeltingNetherOreDelegate(
       @KorTextConfig(file = ModuleOre.Config.FILENAME) TextConfigData textConfigData,
-      @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "smelting_nether_ore.json") ConfigSmeltingNetherOre config
+      @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "smelting_nether_ore_to_ore.json") ConfigSmeltingNetherOre config
   ) {
     this.textConfigData = textConfigData;
     this.config = config;
@@ -49,9 +48,9 @@ public class RecipeSmeltingNetherOreDelegate extends
   }
 
   private boolean isRecipeEnabledInConfig(String name) {
-    return this.textConfigData.getCategory(ModuleOre.Config.CATEGORY_ORE_OVERWORLD).getBoolean(name)
-        && this.textConfigData.getCategory(ModuleOre.Config.CATEGORY_ORE_NETHER).getBoolean(name)
-        && this.textConfigData.getCategory(ModuleOre.Config.CATEGORY_RECIPE_SMELTING).getBoolean(name);
+    return this.textConfigData.getCategory(ModuleOre.Config.CATEGORY_BLOCK_ORE_OVERWORLD).getBoolean(name)
+        && this.textConfigData.getCategory(ModuleOre.Config.CATEGORY_BLOCK_ORE_NETHER).getBoolean(name)
+        && this.textConfigData.getCategory(ModuleOre.Config.CATEGORY_SMELTING_NETHER_ORE_TO_ORE).getBoolean(name);
   }
 
   private static class RecipeSmeltingNetherOre extends

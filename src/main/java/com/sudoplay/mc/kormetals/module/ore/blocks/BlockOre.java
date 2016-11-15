@@ -154,7 +154,7 @@ public class BlockOre extends
   }
 
   private static boolean isEnabled(String key, TextConfigData configData) {
-    return configData.getCategory(ModuleOre.Config.CATEGORY_ORE_OVERWORLD).getBoolean(key);
+    return configData.getCategory(ModuleOre.Config.CATEGORY_BLOCK_ORE_OVERWORLD).getBoolean(key);
   }
 
   @Override

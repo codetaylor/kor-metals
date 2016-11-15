@@ -20,13 +20,13 @@ import com.sudoplay.mc.kormetals.shared.MetalType;
     // is the ore turned off?
     @KorTextConfigDependency(
         filename = ModuleOre.Config.FILENAME,
-        category = ModuleOre.Config.CATEGORY_ORE_OVERWORLD,
+        category = ModuleOre.Config.CATEGORY_BLOCK_ORE_OVERWORLD,
         key = "tin"
     ),
     // is the oregen turned off?
     @KorTextConfigDependency(
         filename = ModuleOre.Config.FILENAME,
-        category = ModuleOre.Config.CATEGORY_ORE_OVERWORLD_GENERATION,
+        category = ModuleOre.Config.CATEGORY_WORLDGEN_ORE_OVERWORLD,
         key = "tin"
     )
 })

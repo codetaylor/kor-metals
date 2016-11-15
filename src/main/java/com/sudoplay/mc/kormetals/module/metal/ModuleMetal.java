@@ -5,11 +5,13 @@ import com.sudoplay.mc.kor.spi.IKorModule;
 import com.sudoplay.mc.kor.spi.event.internal.OnLoadConfigurationsEvent;
 import com.sudoplay.mc.kor.spi.event.internal.OnRegisterItemsEvent;
 import com.sudoplay.mc.kor.spi.event.internal.OnRegisterRecipesEvent;
+import com.sudoplay.mc.kormetals.module.metal.item.ItemDust;
 import com.sudoplay.mc.kormetals.module.metal.item.ItemIngot;
-import com.sudoplay.mc.kormetals.module.metal.recipe.RecipeShapelessIngotDelegate;
-import com.sudoplay.mc.kormetals.module.metal.recipe.RecipeSmeltingIngotDelegate;
 import com.sudoplay.mc.kormetals.module.metal.item.ItemNugget;
-import com.sudoplay.mc.kormetals.module.metal.recipe.RecipeShapelessNuggetDelegate;
+import com.sudoplay.mc.kormetals.module.metal.recipe.RecipeShapelessIngotToNuggetDelegate;
+import com.sudoplay.mc.kormetals.module.metal.recipe.RecipeShapelessNuggetToIngotDelegate;
+import com.sudoplay.mc.kormetals.module.metal.recipe.RecipeSmeltingDustToIngotDelegate;
+import com.sudoplay.mc.kormetals.module.metal.recipe.RecipeSmeltingOreToIngotDelegate;
 
 import java.io.File;
 
@@ -24,12 +26,15 @@ public class ModuleMetal implements
   public static class Config {
     public static final String FILENAME = MODULE_ID + "/" + MODULE_ID + ".cfg";
 
-    public static final String CATEGORY_INGOT = "1:ingot";
-    public static final String CATEGORY_INGOT_RECIPE_SMELTING = "2:ingot:recipe:smelting";
-    public static final String CATEGORY_INGOT_RECIPE_NUGGET = "3:ingot:recipe:nugget";
+    public static final String CATEGORY_ITEM_INGOT = "1:item:ingot";
+    public static final String CATEGORY_SMELTING_ORE_TO_INGOT = "1:smelting:ore_to_ingot";
+    public static final String CATEGORY_RECIPE_NUGGET_TO_INGOT = "1:recipe:nugget_to_ingot";
 
-    public static final String CATEGORY_NUGGET = "4:nugget";
-    public static final String CATEGORY_NUGGET_RECIPE_INGOT = "5:nugget:recipe:ingot";
+    public static final String CATEGORY_ITEM_NUGGET = "2:item:nugget";
+    public static final String CATEGORY_RECIPE_INGOT_TO_NUGGET = "2:recipe:ingot_to_nugget";
+
+    public static final String CATEGORY_ITEM_DUST = "3:item:dust";
+    public static final String CATEGORY_SMELTING_DUST_TO_INGOT = "3:smelting:dust_to_ingot";
   }
 
   @Override
@@ -52,7 +57,8 @@ public class ModuleMetal implements
     event.getRegistryService().register(
 
         ItemIngot.class,
-        ItemNugget.class
+        ItemNugget.class,
+        ItemDust.class
     );
   }
 
@@ -60,9 +66,10 @@ public class ModuleMetal implements
   public void onRegisterRecipes(OnRegisterRecipesEvent event) {
     event.getRegistryService().register(
 
-        RecipeSmeltingIngotDelegate.class,
-        RecipeShapelessIngotDelegate.class,
-        RecipeShapelessNuggetDelegate.class
+        RecipeSmeltingOreToIngotDelegate.class,
+        RecipeShapelessNuggetToIngotDelegate.class,
+        RecipeShapelessIngotToNuggetDelegate.class,
+        RecipeSmeltingDustToIngotDelegate.class
     );
   }
 }

@@ -8,20 +8,20 @@ import com.sudoplay.mc.kor.spi.registry.injection.KorInject;
 import com.sudoplay.mc.kor.spi.registry.injection.KorTextConfig;
 import com.sudoplay.mc.kor.spi.registry.strategy.KorInitStrategy;
 import com.sudoplay.mc.kormetals.module.metal.ModuleMetal;
-import com.sudoplay.mc.kormetals.module.metal.item.ItemIngot;
+import com.sudoplay.mc.kormetals.module.metal.item.ItemNugget;
 import com.sudoplay.mc.kormetals.shared.MetalType;
 import net.minecraft.item.ItemStack;
 
 /**
  * Created by sk3lls on 11/13/2016.
  */
-public class RecipeShapelessIngotDelegate extends
+public class RecipeShapelessIngotToNuggetDelegate extends
     KorRegistrationDelegate {
 
   private TextConfigData config;
 
   @KorInject
-  public RecipeShapelessIngotDelegate(
+  public RecipeShapelessIngotToNuggetDelegate(
       @KorTextConfig(file = ModuleMetal.Config.FILENAME) TextConfigData config
   ) {
     this.config = config;
@@ -35,47 +35,31 @@ public class RecipeShapelessIngotDelegate extends
         String name = metalType.getName();
 
         if (isRecipeEnabledInConfig(name)) {
-          new RecipeShapelessIngot(metalType, kor).getInitStrategy().onInit(kor);
+          new RecipeShapelessNugget(metalType, kor).getInitStrategy().onInit(kor);
         }
       }
     };
   }
 
   private boolean isRecipeEnabledInConfig(String name) {
-    return this.config.getCategory(ModuleMetal.Config.CATEGORY_INGOT).getBoolean(name)
-        && this.config.getCategory(ModuleMetal.Config.CATEGORY_NUGGET).getBoolean(name)
-        && this.config.getCategory(ModuleMetal.Config.CATEGORY_INGOT_RECIPE_NUGGET).getBoolean(name);
+    return this.config.getCategory(ModuleMetal.Config.CATEGORY_ITEM_INGOT).getBoolean(name)
+        && this.config.getCategory(ModuleMetal.Config.CATEGORY_ITEM_NUGGET).getBoolean(name)
+        && this.config.getCategory(ModuleMetal.Config.CATEGORY_RECIPE_INGOT_TO_NUGGET).getBoolean(name);
   }
 
-  private static class RecipeShapelessIngot extends
+  private static class RecipeShapelessNugget extends
       KorRecipeCraftingShapeless {
 
-    RecipeShapelessIngot(
+    RecipeShapelessNugget(
         MetalType metalType,
         Kor kor
     ) {
       super(
-          new ItemStack(kor.get(ItemIngot.class), 1, metalType.getMeta()),
-          getParams(metalType)
+          new ItemStack(kor.get(ItemNugget.class), 9, metalType.getMeta()),
+          new Object[]{
+              "ingot" + metalType.getName().substring(0, 1).toUpperCase() + metalType.getName().substring(1)
+          }
       );
-    }
-
-    private static Object[] getParams(MetalType metalType) {
-      String nuggetOreDictName = "nugget"
-          + metalType.getName().substring(0, 1).toUpperCase()
-          + metalType.getName().substring(1);
-
-      return new Object[]{
-          nuggetOreDictName,
-          nuggetOreDictName,
-          nuggetOreDictName,
-          nuggetOreDictName,
-          nuggetOreDictName,
-          nuggetOreDictName,
-          nuggetOreDictName,
-          nuggetOreDictName,
-          nuggetOreDictName
-      };
     }
   }
 }
