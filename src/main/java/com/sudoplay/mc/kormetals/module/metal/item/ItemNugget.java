@@ -1,4 +1,4 @@
-package com.sudoplay.mc.kormetals.module.nugget.item;
+package com.sudoplay.mc.kormetals.module.metal.item;
 
 import com.sudoplay.mc.kor.core.config.text.TextConfigData;
 import com.sudoplay.mc.kor.core.generation.annotation.*;
@@ -10,7 +10,7 @@ import com.sudoplay.mc.kor.spi.registry.injection.KorInject;
 import com.sudoplay.mc.kor.spi.registry.injection.KorTextConfig;
 import com.sudoplay.mc.kormetals.KorMetals;
 import com.sudoplay.mc.kormetals.KorMetalsCreativeTab;
-import com.sudoplay.mc.kormetals.module.nugget.ModuleNugget;
+import com.sudoplay.mc.kormetals.module.metal.ModuleMetal;
 import com.sudoplay.mc.kormetals.shared.MetalType;
 
 import javax.annotation.Nonnull;
@@ -76,7 +76,7 @@ public class ItemNugget extends
   @KorInject
   public ItemNugget(
       Kor kor,
-      @KorTextConfig(path = ModuleNugget.MODULE_ID, file = ModuleNugget.MODULE_ID + ".cfg") TextConfigData configData
+      @KorTextConfig(path = ModuleMetal.MODULE_ID, file = ModuleMetal.MODULE_ID + ".cfg") TextConfigData configData
   ) {
     super(
         kor.getModId(),
@@ -99,7 +99,7 @@ public class ItemNugget extends
   }
 
   private static boolean isEnabled(String key, TextConfigData configData) {
-    return configData.getCategory(ModuleNugget.Config.CATEGORY_NUGGET).getBoolean(key);
+    return configData.getCategory(ModuleMetal.Config.CATEGORY_NUGGET).getBoolean(key);
   }
 
   @Override

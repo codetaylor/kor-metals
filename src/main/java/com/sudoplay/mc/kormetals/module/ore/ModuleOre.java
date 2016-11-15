@@ -17,7 +17,7 @@ import java.io.File;
 public class ModuleOre implements
     IKorModule {
 
-  public static final String MODULE_ID = "module_ore";
+  public static final String MODULE_ID = "ore";
 
   public static class Config {
     public static final String FILENAME = MODULE_ID + "/" + MODULE_ID + ".cfg";

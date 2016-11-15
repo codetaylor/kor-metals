@@ -1,21 +1,31 @@
 buildscript {
     repositories {
         jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
     }
 }
-apply plugin: 'net.minecraftforge.gradle.forge'
-//Only edit below this line, the above code adds and enables the nessasary things for Forge to be setup.
 
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        name 'DVS1 Maven FS'
+        url 'http://dvs1.progwml6.com/files/maven'
+    }
+}
 
 version = "snapshot"
 group = "com.sudoplay.mc.kor" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "ctkormetals"
 
-sourceCompatibility = targetCompatibility = "1.8" // Need this here so eclipse task generates correctly.
 compileJava {
     sourceCompatibility = targetCompatibility = "1.8"
 }
@@ -36,8 +46,12 @@ minecraft {
 
 dependencies {
     compile project(':kor-lib')
+
+    //deobfCompile "slimeknights.mantle:Mantle:1.10.2-1.1.1.194:deobf"
+    //deobfCompile "slimeknights:TConstruct:1.10.2-2.5.6b.jenkins425:deobf"
 }
 
+//noinspection GroovyAssignabilityCheck
 processResources
         {
             // this will ensure that this task is redone when the versions change.
@@ -57,3 +71,12 @@ processResources
                 exclude 'mcmod.info'
             }
         }
+
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'deobf'
+}
+
+artifacts {
+    archives deobfJar
+}

@@ -1,4 +1,4 @@
-package com.sudoplay.mc.kormetals.module.nugget.recipe;
+package com.sudoplay.mc.kormetals.module.metal.recipe;
 
 import com.sudoplay.mc.kor.core.config.text.TextConfigData;
 import com.sudoplay.mc.kor.spi.Kor;
@@ -6,10 +6,9 @@ import com.sudoplay.mc.kor.spi.recipe.KorRecipeCraftingShapeless;
 import com.sudoplay.mc.kor.spi.registry.KorRegistrationDelegate;
 import com.sudoplay.mc.kor.spi.registry.injection.KorInject;
 import com.sudoplay.mc.kor.spi.registry.injection.KorTextConfig;
-import com.sudoplay.mc.kor.spi.registry.strategy.KorPreInitStrategy;
-import com.sudoplay.mc.kormetals.module.ingot.ModuleIngot;
-import com.sudoplay.mc.kormetals.module.nugget.ModuleNugget;
-import com.sudoplay.mc.kormetals.module.nugget.item.ItemNugget;
+import com.sudoplay.mc.kor.spi.registry.strategy.KorInitStrategy;
+import com.sudoplay.mc.kormetals.module.metal.ModuleMetal;
+import com.sudoplay.mc.kormetals.module.metal.item.ItemNugget;
 import com.sudoplay.mc.kormetals.shared.MetalType;
 import net.minecraft.item.ItemStack;
 
@@ -19,20 +18,17 @@ import net.minecraft.item.ItemStack;
 public class RecipeShapelessNuggetDelegate extends
     KorRegistrationDelegate {
 
-  private TextConfigData configNugget;
-  private TextConfigData configIngot;
+  private TextConfigData config;
 
   @KorInject
   public RecipeShapelessNuggetDelegate(
-      @KorTextConfig(file = ModuleNugget.Config.FILENAME) TextConfigData configNugget,
-      @KorTextConfig(file = ModuleIngot.Config.FILENAME) TextConfigData configIngot
+      @KorTextConfig(file = ModuleMetal.Config.FILENAME) TextConfigData config
   ) {
-    this.configNugget = configNugget;
-    this.configIngot = configIngot;
+    this.config = config;
   }
 
   @Override
-  public KorPreInitStrategy getPreInitStrategy() {
+  public KorInitStrategy getInitStrategy() {
     return (kor) -> {
 
       for (MetalType metalType : MetalType.values()) {
@@ -46,9 +42,9 @@ public class RecipeShapelessNuggetDelegate extends
   }
 
   private boolean isRecipeEnabledInConfig(String name) {
-    return this.configIngot.getCategory(ModuleIngot.Config.CATEGORY_INGOT).getBoolean(name)
-        && this.configNugget.getCategory(ModuleNugget.Config.CATEGORY_NUGGET).getBoolean(name)
-        && this.configNugget.getCategory(ModuleNugget.Config.CATEGORY_RECIPE_INGOT).getBoolean(name);
+    return this.config.getCategory(ModuleMetal.Config.CATEGORY_INGOT).getBoolean(name)
+        && this.config.getCategory(ModuleMetal.Config.CATEGORY_NUGGET).getBoolean(name)
+        && this.config.getCategory(ModuleMetal.Config.CATEGORY_NUGGET_RECIPE_INGOT).getBoolean(name);
   }
 
   private static class RecipeShapelessNugget extends

@@ -1,4 +1,4 @@
-package com.sudoplay.mc.kormetals.module.ingot.item;
+package com.sudoplay.mc.kormetals.module.metal.item;
 
 import com.sudoplay.mc.kor.core.config.text.TextConfigData;
 import com.sudoplay.mc.kor.core.generation.annotation.*;
@@ -10,8 +10,7 @@ import com.sudoplay.mc.kor.spi.registry.injection.KorInject;
 import com.sudoplay.mc.kor.spi.registry.injection.KorTextConfig;
 import com.sudoplay.mc.kormetals.KorMetals;
 import com.sudoplay.mc.kormetals.KorMetalsCreativeTab;
-import com.sudoplay.mc.kormetals.module.ingot.ModuleIngot;
-import com.sudoplay.mc.kormetals.module.ore.ModuleOre;
+import com.sudoplay.mc.kormetals.module.metal.ModuleMetal;
 import com.sudoplay.mc.kormetals.shared.MetalType;
 
 import javax.annotation.Nonnull;
@@ -77,7 +76,7 @@ public class ItemIngot extends
   @KorInject
   public ItemIngot(
       Kor kor,
-      @KorTextConfig(path = ModuleIngot.MODULE_ID, file = ModuleIngot.MODULE_ID + ".cfg") TextConfigData configData
+      @KorTextConfig(path = ModuleMetal.MODULE_ID, file = ModuleMetal.MODULE_ID + ".cfg") TextConfigData configData
   ) {
     super(
         kor.getModId(),
@@ -100,7 +99,7 @@ public class ItemIngot extends
   }
 
   private static boolean isEnabled(String key, TextConfigData configData) {
-    return configData.getCategory(ModuleIngot.Config.CATEGORY_INGOT).getBoolean(key);
+    return configData.getCategory(ModuleMetal.Config.CATEGORY_INGOT).getBoolean(key);
   }
 
   @Override

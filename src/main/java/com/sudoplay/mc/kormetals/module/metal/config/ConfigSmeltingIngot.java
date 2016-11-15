@@ -1,4 +1,4 @@
-package com.sudoplay.mc.kormetals.module.ingot.config;
+package com.sudoplay.mc.kormetals.module.metal.config;
 
 import com.google.gson.annotations.SerializedName;
 import com.sudoplay.mc.kor.spi.config.json.KorConfigObject;

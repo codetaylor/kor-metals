@@ -1,4 +1,4 @@
-package com.sudoplay.mc.kormetals.module.ingot.recipe;
+package com.sudoplay.mc.kormetals.module.metal.recipe;
 
 import com.sudoplay.mc.kor.core.config.text.TextConfigData;
 import com.sudoplay.mc.kor.spi.Kor;
@@ -8,10 +8,10 @@ import com.sudoplay.mc.kor.spi.registry.KorRegistrationDelegate;
 import com.sudoplay.mc.kor.spi.registry.injection.KorInject;
 import com.sudoplay.mc.kor.spi.registry.injection.KorJsonConfig;
 import com.sudoplay.mc.kor.spi.registry.injection.KorTextConfig;
-import com.sudoplay.mc.kor.spi.registry.strategy.KorPreInitStrategy;
-import com.sudoplay.mc.kormetals.module.ingot.ModuleIngot;
-import com.sudoplay.mc.kormetals.module.ingot.config.ConfigSmeltingIngot;
-import com.sudoplay.mc.kormetals.module.ingot.item.ItemIngot;
+import com.sudoplay.mc.kor.spi.registry.strategy.KorInitStrategy;
+import com.sudoplay.mc.kormetals.module.metal.ModuleMetal;
+import com.sudoplay.mc.kormetals.module.metal.config.ConfigSmeltingIngot;
+import com.sudoplay.mc.kormetals.module.metal.item.ItemIngot;
 import com.sudoplay.mc.kormetals.module.ore.ModuleOre;
 import com.sudoplay.mc.kormetals.module.ore.blocks.BlockOre;
 import com.sudoplay.mc.kormetals.shared.MetalType;
@@ -27,7 +27,7 @@ public class RecipeSmeltingIngotDelegate extends
 
   @KorInject
   public RecipeSmeltingIngotDelegate(
-      @KorTextConfig(file = ModuleIngot.Config.FILENAME) TextConfigData textConfigData,
+      @KorTextConfig(file = ModuleMetal.Config.FILENAME) TextConfigData textConfigData,
       @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "smelting_nether_ore.json") ConfigSmeltingIngot config
   ) {
     this.textConfigData = textConfigData;
@@ -35,7 +35,7 @@ public class RecipeSmeltingIngotDelegate extends
   }
 
   @Override
-  public KorPreInitStrategy getPreInitStrategy() {
+  public KorInitStrategy getInitStrategy() {
     return kor -> {
 
       for (MetalType metalType : MetalType.values()) {
@@ -49,8 +49,8 @@ public class RecipeSmeltingIngotDelegate extends
   }
 
   private boolean isRecipeEnabledInConfig(String name) {
-    return this.textConfigData.getCategory(ModuleIngot.Config.CATEGORY_INGOT).getBoolean(name)
-        && this.textConfigData.getCategory(ModuleIngot.Config.CATEGORY_RECIPE_SMELTING).getBoolean(name);
+    return this.textConfigData.getCategory(ModuleMetal.Config.CATEGORY_INGOT).getBoolean(name)
+        && this.textConfigData.getCategory(ModuleMetal.Config.CATEGORY_INGOT_RECIPE_SMELTING).getBoolean(name);
   }
 
   /**
