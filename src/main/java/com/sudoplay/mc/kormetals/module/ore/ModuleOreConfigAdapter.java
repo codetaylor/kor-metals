@@ -69,7 +69,7 @@ public class ModuleOreConfigAdapter implements
     configuration.addCustomCategoryComment(
         category,
         "Toggle ore generation for Dimension 0 (Overworld). To edit ore\n" +
-            "generation properties, look in the oregen folder."
+            "generation properties, look in the worldgen folder."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);
@@ -91,7 +91,7 @@ public class ModuleOreConfigAdapter implements
     configuration.addCustomCategoryComment(
         category,
         "Toggle ore generation for Dimension -1 (Nether). To edit ore\n" +
-            "generation properties, look in the oregen folder."
+            "generation properties, look in the worldgen folder."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);
@@ -112,7 +112,7 @@ public class ModuleOreConfigAdapter implements
 
     configuration.addCustomCategoryComment(
         category,
-        "Toggle the nether ore smelting recipes."
+        "Toggle nether ore -> ore smelting recipes here."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);

@@ -18,8 +18,8 @@ public class ModuleMetalConfigAdapter implements
 
     configuration.addCustomCategoryComment(
         category,
-        "Ingots toggled off here will not be loaded. Consequently, disabled\n" +
-            "ingots will also have their ore to ingot smelting recipes removed."
+        "Ingots toggled off here will not be loaded. Consequently, disabling an\n" +
+            "ingot will also disable any recipes that produce the item."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);
@@ -61,7 +61,7 @@ public class ModuleMetalConfigAdapter implements
 
     configuration.addCustomCategoryComment(
         category,
-        "Toggle nugget -> ingot recipes here."
+        "Toggle nuggets -> ingot recipes here."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);
@@ -82,8 +82,8 @@ public class ModuleMetalConfigAdapter implements
 
     configuration.addCustomCategoryComment(
         category,
-        "Nuggets toggled off here will not be loaded. Consequently, disabled\n" +
-            "nuggets will also have their ingot to nugget recipes removed."
+        "Nuggets toggled off here will not be loaded. Consequently, disabling a\n" +
+            "nugget will also disable any recipes that produce the item."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);
@@ -104,7 +104,7 @@ public class ModuleMetalConfigAdapter implements
 
     configuration.addCustomCategoryComment(
         category,
-        "The recipes to craft ingots into nuggets can be toggled here."
+        "Toggle ingot -> nuggets recipes here."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);
@@ -125,7 +125,8 @@ public class ModuleMetalConfigAdapter implements
 
     configuration.addCustomCategoryComment(
         category,
-        "Toggle dusts here."
+        "Dusts toggled off here will not be loaded. Consequently, disabling a\n" +
+            "dust will also disable any recipes that produce the item."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);
@@ -146,7 +147,7 @@ public class ModuleMetalConfigAdapter implements
 
     configuration.addCustomCategoryComment(
         category,
-        "The recipes to smelt dust into ingots can be toggled here."
+        "Toggle dust -> ingot smelting recipes here."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);
@@ -167,7 +168,8 @@ public class ModuleMetalConfigAdapter implements
 
     configuration.addCustomCategoryComment(
         category,
-        "Toggle the metal blocks here."
+        "Blocks toggled off here will not be loaded. Consequently, disabling an\n" +
+            "block will also disable any recipes that produce the item."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);
@@ -188,7 +190,7 @@ public class ModuleMetalConfigAdapter implements
 
     configuration.addCustomCategoryComment(
         category,
-        "The recipes to craft ingots into blocks can be toggled here."
+        "Toggle ingots -> block recipes here."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);
