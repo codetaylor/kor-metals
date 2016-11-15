@@ -13,7 +13,7 @@ import java.util.Map;
 public class ConfigSmeltingDust extends
     KorConfigObject {
 
-  @SerializedName("smelting_ingot")
+  @SerializedName("smelting_dust_to_ingot")
   private Map<String, ConfigSmeltingEntry> entryMap;
 
   public ConfigSmeltingDust() {

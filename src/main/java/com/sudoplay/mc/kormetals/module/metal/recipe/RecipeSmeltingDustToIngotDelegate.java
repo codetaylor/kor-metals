@@ -10,7 +10,7 @@ import com.sudoplay.mc.kor.spi.registry.injection.KorJsonConfig;
 import com.sudoplay.mc.kor.spi.registry.injection.KorTextConfig;
 import com.sudoplay.mc.kor.spi.registry.strategy.KorInitStrategy;
 import com.sudoplay.mc.kormetals.module.metal.ModuleMetal;
-import com.sudoplay.mc.kormetals.module.metal.config.ConfigSmeltingIngot;
+import com.sudoplay.mc.kormetals.module.metal.config.ConfigSmeltingDust;
 import com.sudoplay.mc.kormetals.module.metal.item.ItemDust;
 import com.sudoplay.mc.kormetals.module.metal.item.ItemIngot;
 import com.sudoplay.mc.kormetals.module.ore.ModuleOre;
@@ -23,12 +23,12 @@ public class RecipeSmeltingDustToIngotDelegate extends
     KorRegistrationDelegate {
 
   private TextConfigData textConfigData;
-  private ConfigSmeltingIngot config;
+  private ConfigSmeltingDust config;
 
   @KorInject
   public RecipeSmeltingDustToIngotDelegate(
       @KorTextConfig(file = ModuleMetal.Config.FILENAME) TextConfigData textConfigData,
-      @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "smelting_dust_to_ingot.json") ConfigSmeltingIngot config
+      @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "smelting_dust_to_ingot.json") ConfigSmeltingDust config
   ) {
     this.textConfigData = textConfigData;
     this.config = config;
@@ -63,7 +63,7 @@ public class RecipeSmeltingDustToIngotDelegate extends
     RecipeSmeltingDust(
         MetalType metalType,
         Kor kor,
-        ConfigSmeltingIngot config
+        ConfigSmeltingDust config
     ) {
       super(
           KorRecipeItem.from(kor.get(ItemDust.class), 1, metalType.getMeta()),

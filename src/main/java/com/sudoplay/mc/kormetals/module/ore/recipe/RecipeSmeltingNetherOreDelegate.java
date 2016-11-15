@@ -10,8 +10,8 @@ import com.sudoplay.mc.kor.spi.registry.injection.KorJsonConfig;
 import com.sudoplay.mc.kor.spi.registry.injection.KorTextConfig;
 import com.sudoplay.mc.kor.spi.registry.strategy.KorInitStrategy;
 import com.sudoplay.mc.kormetals.module.ore.ModuleOre;
-import com.sudoplay.mc.kormetals.module.ore.blocks.BlockNetherOre;
-import com.sudoplay.mc.kormetals.module.ore.blocks.BlockOre;
+import com.sudoplay.mc.kormetals.module.ore.block.BlockNetherOre;
+import com.sudoplay.mc.kormetals.module.ore.block.BlockOre;
 import com.sudoplay.mc.kormetals.module.ore.config.ConfigSmeltingNetherOre;
 import com.sudoplay.mc.kormetals.shared.MetalType;
 

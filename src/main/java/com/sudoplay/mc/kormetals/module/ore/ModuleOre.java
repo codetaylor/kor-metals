@@ -4,8 +4,8 @@ import com.google.common.eventbus.Subscribe;
 import com.sudoplay.mc.kor.spi.IKorModule;
 import com.sudoplay.mc.kor.spi.event.internal.*;
 import com.sudoplay.mc.kormetals.KorMetalsCreativeTab;
-import com.sudoplay.mc.kormetals.module.ore.blocks.BlockNetherOre;
-import com.sudoplay.mc.kormetals.module.ore.blocks.BlockOre;
+import com.sudoplay.mc.kormetals.module.ore.block.BlockNetherOre;
+import com.sudoplay.mc.kormetals.module.ore.block.BlockOre;
 import com.sudoplay.mc.kormetals.module.ore.recipe.RecipeSmeltingNetherOreDelegate;
 import com.sudoplay.mc.kormetals.module.ore.worldgen.*;
 

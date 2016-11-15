@@ -13,7 +13,7 @@ import com.sudoplay.mc.kormetals.module.metal.ModuleMetal;
 import com.sudoplay.mc.kormetals.module.metal.config.ConfigSmeltingIngot;
 import com.sudoplay.mc.kormetals.module.metal.item.ItemIngot;
 import com.sudoplay.mc.kormetals.module.ore.ModuleOre;
-import com.sudoplay.mc.kormetals.module.ore.blocks.BlockOre;
+import com.sudoplay.mc.kormetals.module.ore.block.BlockOre;
 import com.sudoplay.mc.kormetals.shared.MetalType;
 
 /**

@@ -50,12 +50,12 @@ public class ModuleMetalConfigAdapter implements
     adaptBoolean(category, "silver", true, configuration, textConfigData);
     adaptBoolean(category, "tin", true, configuration, textConfigData);
 
-    adaptBoolean(category, "brass", false, configuration, textConfigData);
-    adaptBoolean(category, "electrum", false, configuration, textConfigData);
-    adaptBoolean(category, "enderium", false, configuration, textConfigData);
-    adaptBoolean(category, "invar", false, configuration, textConfigData);
-    adaptBoolean(category, "lumium", false, configuration, textConfigData);
-    adaptBoolean(category, "signalum", false, configuration, textConfigData);
+    adaptBoolean(category, "brass", true, configuration, textConfigData);
+    adaptBoolean(category, "electrum", true, configuration, textConfigData);
+    adaptBoolean(category, "enderium", true, configuration, textConfigData);
+    adaptBoolean(category, "invar", true, configuration, textConfigData);
+    adaptBoolean(category, "lumium", true, configuration, textConfigData);
+    adaptBoolean(category, "signalum", true, configuration, textConfigData);
 
     category = ModuleMetal.Config.CATEGORY_RECIPE_NUGGET_TO_INGOT;
 
@@ -125,7 +125,7 @@ public class ModuleMetalConfigAdapter implements
 
     configuration.addCustomCategoryComment(
         category,
-        "Toggle dusts here"
+        "Toggle dusts here."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);
@@ -146,7 +146,49 @@ public class ModuleMetalConfigAdapter implements
 
     configuration.addCustomCategoryComment(
         category,
-        "The recipes to smelt dust into ingots can be toggled here"
+        "The recipes to smelt dust into ingots can be toggled here."
+    );
+
+    adaptBoolean(category, "copper", true, configuration, textConfigData);
+    adaptBoolean(category, "lead", true, configuration, textConfigData);
+    adaptBoolean(category, "nickel", true, configuration, textConfigData);
+    adaptBoolean(category, "platinum", true, configuration, textConfigData);
+    adaptBoolean(category, "silver", true, configuration, textConfigData);
+    adaptBoolean(category, "tin", true, configuration, textConfigData);
+
+    adaptBoolean(category, "brass", true, configuration, textConfigData);
+    adaptBoolean(category, "electrum", true, configuration, textConfigData);
+    adaptBoolean(category, "enderium", true, configuration, textConfigData);
+    adaptBoolean(category, "invar", true, configuration, textConfigData);
+    adaptBoolean(category, "lumium", true, configuration, textConfigData);
+    adaptBoolean(category, "signalum", true, configuration, textConfigData);
+
+    category = ModuleMetal.Config.CATEGORY_BLOCK_METAL;
+
+    configuration.addCustomCategoryComment(
+        category,
+        "Toggle the metal blocks here."
+    );
+
+    adaptBoolean(category, "copper", true, configuration, textConfigData);
+    adaptBoolean(category, "lead", true, configuration, textConfigData);
+    adaptBoolean(category, "nickel", true, configuration, textConfigData);
+    adaptBoolean(category, "platinum", true, configuration, textConfigData);
+    adaptBoolean(category, "silver", true, configuration, textConfigData);
+    adaptBoolean(category, "tin", true, configuration, textConfigData);
+
+    adaptBoolean(category, "brass", true, configuration, textConfigData);
+    adaptBoolean(category, "electrum", true, configuration, textConfigData);
+    adaptBoolean(category, "enderium", true, configuration, textConfigData);
+    adaptBoolean(category, "invar", true, configuration, textConfigData);
+    adaptBoolean(category, "lumium", true, configuration, textConfigData);
+    adaptBoolean(category, "signalum", true, configuration, textConfigData);
+
+    category = ModuleMetal.Config.CATEGORY_RECIPE_INGOT_TO_BLOCK;
+
+    configuration.addCustomCategoryComment(
+        category,
+        "The recipes to craft ingots into blocks can be toggled here."
     );
 
     adaptBoolean(category, "copper", true, configuration, textConfigData);

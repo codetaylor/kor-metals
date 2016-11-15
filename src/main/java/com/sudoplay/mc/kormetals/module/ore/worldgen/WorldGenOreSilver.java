@@ -11,7 +11,7 @@ import com.sudoplay.mc.kor.spi.registry.injection.KorInject;
 import com.sudoplay.mc.kor.spi.world.KorWorldGen;
 import com.sudoplay.mc.kormetals.KorMetals;
 import com.sudoplay.mc.kormetals.module.ore.ModuleOre;
-import com.sudoplay.mc.kormetals.module.ore.blocks.BlockOre;
+import com.sudoplay.mc.kormetals.module.ore.block.BlockOre;
 import com.sudoplay.mc.kormetals.shared.MetalType;
 
 /**

@@ -1,4 +1,4 @@
-package com.sudoplay.mc.kormetals.module.ore.blocks;
+package com.sudoplay.mc.kormetals.module.metal.block;
 
 import com.google.gson.annotations.SerializedName;
 import com.sudoplay.mc.kor.core.config.text.TextConfigData;
@@ -13,8 +13,9 @@ import com.sudoplay.mc.kor.spi.registry.injection.KorJsonConfig;
 import com.sudoplay.mc.kor.spi.registry.injection.KorTextConfig;
 import com.sudoplay.mc.kormetals.KorMetals;
 import com.sudoplay.mc.kormetals.KorMetalsCreativeTab;
+import com.sudoplay.mc.kormetals.module.metal.ModuleMetal;
 import com.sudoplay.mc.kormetals.module.ore.ModuleOre;
-import com.sudoplay.mc.kormetals.module.ore.config.ConfigOreEntry;
+import com.sudoplay.mc.kormetals.module.ore.config.ConfigBlockEntry;
 import com.sudoplay.mc.kormetals.shared.MetalType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -38,7 +39,7 @@ import static com.sudoplay.mc.kormetals.shared.MetalType.*;
 
 @KorGenerateBlockSubTypedAssets(
     property = "type",
-    name = "ore",
+    name = "block",
     modId = KorMetals.MOD_ID,
     subTypes = {
         "brass",
@@ -57,63 +58,63 @@ import static com.sudoplay.mc.kormetals.shared.MetalType.*;
 )
 
 @KorGenerateLangEntries(entries = {
-    @KorLangEntry(key = "tile.ore_brass.name", value = "Brass Ore"),
-    @KorLangEntry(key = "tile.ore_copper.name", value = "Copper Ore"),
-    @KorLangEntry(key = "tile.ore_electrum.name", value = "Electrum Ore"),
-    @KorLangEntry(key = "tile.ore_enderium.name", value = "Enderium Ore"),
-    @KorLangEntry(key = "tile.ore_invar.name", value = "Invar Ore"),
-    @KorLangEntry(key = "tile.ore_lead.name", value = "Lead Ore"),
-    @KorLangEntry(key = "tile.ore_lumium.name", value = "Lumium Ore"),
-    @KorLangEntry(key = "tile.ore_nickel.name", value = "Nickel Ore"),
-    @KorLangEntry(key = "tile.ore_platinum.name", value = "Platinum Ore"),
-    @KorLangEntry(key = "tile.ore_signalum.name", value = "Signalum Ore"),
-    @KorLangEntry(key = "tile.ore_silver.name", value = "Silver Ore"),
-    @KorLangEntry(key = "tile.ore_tin.name", value = "Tin Ore")
+    @KorLangEntry(key = "tile.block_brass.name", value = "Brass Block"),
+    @KorLangEntry(key = "tile.block_copper.name", value = "Copper Block"),
+    @KorLangEntry(key = "tile.block_electrum.name", value = "Electrum Block"),
+    @KorLangEntry(key = "tile.block_enderium.name", value = "Enderium Block"),
+    @KorLangEntry(key = "tile.block_invar.name", value = "Invar Block"),
+    @KorLangEntry(key = "tile.block_lead.name", value = "Lead Block"),
+    @KorLangEntry(key = "tile.block_lumium.name", value = "Lumium Block"),
+    @KorLangEntry(key = "tile.block_nickel.name", value = "Nickel Block"),
+    @KorLangEntry(key = "tile.block_platinum.name", value = "Platinum Block"),
+    @KorLangEntry(key = "tile.block_signalum.name", value = "Signalum Block"),
+    @KorLangEntry(key = "tile.block_silver.name", value = "Silver Block"),
+    @KorLangEntry(key = "tile.block_tin.name", value = "Tin Block")
 })
 
 @KorGenerateImageSlices(slices = {
-    @KorImageSliceEntry(col = 7, row = 7, target = "blocks/ore_brass", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 1, row = 7, target = "blocks/ore_copper", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 9, row = 7, target = "blocks/ore_electrum", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 12, row = 7, target = "blocks/ore_enderium", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 8, row = 7, target = "blocks/ore_invar", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 4, row = 7, target = "blocks/ore_lead", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 11, row = 7, target = "blocks/ore_lumium", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 5, row = 7, target = "blocks/ore_nickel", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 6, row = 7, target = "blocks/ore_platinum", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 10, row = 7, target = "blocks/ore_signalum", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 3, row = 7, target = "blocks/ore_silver", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 2, row = 7, target = "blocks/ore_tin", source = "KorMetals.png")
+    @KorImageSliceEntry(col = 7, row = 4, target = "blocks/block_brass", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 1, row = 4, target = "blocks/block_copper", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 9, row = 4, target = "blocks/block_electrum", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 12, row = 4, target = "blocks/block_enderium", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 8, row = 4, target = "blocks/block_invar", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 4, row = 4, target = "blocks/block_lead", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 11, row = 4, target = "blocks/block_lumium", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 5, row = 4, target = "blocks/block_nickel", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 6, row = 4, target = "blocks/block_platinum", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 10, row = 4, target = "blocks/block_signalum", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 3, row = 4, target = "blocks/block_silver", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 2, row = 4, target = "blocks/block_tin", source = "KorMetals.png")
 })
 
-public class BlockOre extends
+public class BlockMetal extends
     KorSubTypedEnumBlock<MetalType> implements
     KorOreDictionaryEntryProvider {
 
   private static class Config extends
       KorConfigObject {
 
-    @SerializedName("ore_properties")
-    private Map<MetalType, ConfigOreEntry> oreConfigEntryMap;
+    @SerializedName("block_properties")
+    private Map<MetalType, ConfigBlockEntry> configEntryMap;
 
     public Config() {
-      this.oreConfigEntryMap = new EnumMap<>(MetalType.class);
-      this.oreConfigEntryMap.put(Brass, new ConfigOreEntry(3.0f, 5.0f, 3));
-      this.oreConfigEntryMap.put(Copper, new ConfigOreEntry(3.0f, 5.0f, 1));
-      this.oreConfigEntryMap.put(Electrum, new ConfigOreEntry(3.0f, 5.0f, 3));
-      this.oreConfigEntryMap.put(Enderium, new ConfigOreEntry(3.0f, 5.0f, 3));
-      this.oreConfigEntryMap.put(Invar, new ConfigOreEntry(3.0f, 5.0f, 3));
-      this.oreConfigEntryMap.put(Lead, new ConfigOreEntry(3.0f, 5.0f, 2));
-      this.oreConfigEntryMap.put(Lumium, new ConfigOreEntry(3.0f, 5.0f, 3));
-      this.oreConfigEntryMap.put(Nickel, new ConfigOreEntry(3.0f, 5.0f, 2));
-      this.oreConfigEntryMap.put(Platinum, new ConfigOreEntry(3.0f, 5.0f, 2));
-      this.oreConfigEntryMap.put(Signalum, new ConfigOreEntry(3.0f, 5.0f, 3));
-      this.oreConfigEntryMap.put(Silver, new ConfigOreEntry(3.0f, 5.0f, 2));
-      this.oreConfigEntryMap.put(Tin, new ConfigOreEntry(3.0f, 5.0f, 1));
+      this.configEntryMap = new EnumMap<>(MetalType.class);
+      this.configEntryMap.put(Brass, new ConfigBlockEntry(3.0f, 5.0f, 3));
+      this.configEntryMap.put(Copper, new ConfigBlockEntry(3.0f, 5.0f, 1));
+      this.configEntryMap.put(Electrum, new ConfigBlockEntry(3.0f, 5.0f, 3));
+      this.configEntryMap.put(Enderium, new ConfigBlockEntry(3.0f, 5.0f, 3));
+      this.configEntryMap.put(Invar, new ConfigBlockEntry(3.0f, 5.0f, 3));
+      this.configEntryMap.put(Lead, new ConfigBlockEntry(3.0f, 5.0f, 2));
+      this.configEntryMap.put(Lumium, new ConfigBlockEntry(3.0f, 5.0f, 3));
+      this.configEntryMap.put(Nickel, new ConfigBlockEntry(3.0f, 5.0f, 2));
+      this.configEntryMap.put(Platinum, new ConfigBlockEntry(3.0f, 5.0f, 2));
+      this.configEntryMap.put(Signalum, new ConfigBlockEntry(3.0f, 5.0f, 3));
+      this.configEntryMap.put(Silver, new ConfigBlockEntry(3.0f, 5.0f, 2));
+      this.configEntryMap.put(Tin, new ConfigBlockEntry(3.0f, 5.0f, 1));
     }
 
-    public ConfigOreEntry get(MetalType key) {
-      return this.oreConfigEntryMap.get(key);
+    public ConfigBlockEntry get(MetalType key) {
+      return this.configEntryMap.get(key);
     }
   }
 
@@ -122,14 +123,14 @@ public class BlockOre extends
   private final Config config;
 
   @KorInject
-  public BlockOre(
+  public BlockMetal(
       Kor kor,
-      @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "ore_properties.json") Config config,
-      @KorTextConfig(path = ModuleOre.MODULE_ID, file = ModuleOre.MODULE_ID + ".cfg") TextConfigData configData
+      @KorJsonConfig(path = ModuleMetal.MODULE_ID, file = "block_metal_properties.json") Config config,
+      @KorTextConfig(path = ModuleMetal.MODULE_ID, file = ModuleMetal.MODULE_ID + ".cfg") TextConfigData configData
   ) {
     super(
         kor.getModId(),
-        "ore",
+        "block",
         Material.ROCK,
         TYPE,
         MetalType.class,
@@ -154,7 +155,7 @@ public class BlockOre extends
   }
 
   private static boolean isEnabled(String key, TextConfigData configData) {
-    return configData.getCategory(ModuleOre.Config.CATEGORY_BLOCK_ORE_OVERWORLD).getBoolean(key);
+    return configData.getCategory(ModuleMetal.Config.CATEGORY_BLOCK_METAL).getBoolean(key);
   }
 
   @Override
@@ -164,7 +165,7 @@ public class BlockOre extends
 
     for (MetalType metalType : metalTypes) {
       String name = metalType.getName();
-      name = "ore" + name.substring(0, 1).toUpperCase() + name.substring(1);
+      name = "block" + name.substring(0, 1).toUpperCase() + name.substring(1);
       store.add(new KorOreDictionaryEntry(name, metalType.getMeta()));
     }
     return store;

@@ -13,7 +13,7 @@ import java.util.Map;
 public class ConfigSmeltingIngot extends
     KorConfigObject {
 
-  @SerializedName("smelting_ingot")
+  @SerializedName("smelting_ore_to_ingot")
   private Map<String, ConfigSmeltingEntry> entryMap;
 
   public ConfigSmeltingIngot() {
