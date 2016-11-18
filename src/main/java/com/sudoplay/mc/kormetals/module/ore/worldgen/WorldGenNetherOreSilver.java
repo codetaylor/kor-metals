@@ -6,8 +6,8 @@ import com.sudoplay.mc.kor.spi.config.json.component.world.oregen.DimensionProfi
 import com.sudoplay.mc.kor.spi.config.json.component.world.oregen.KorOreGenConfig;
 import com.sudoplay.mc.kor.spi.registry.dependency.KorRegistrationTextConfigDependency;
 import com.sudoplay.mc.kor.spi.registry.dependency.KorTextConfigDependency;
-import com.sudoplay.mc.kor.spi.registry.injection.KorJsonConfig;
 import com.sudoplay.mc.kor.spi.registry.injection.KorInject;
+import com.sudoplay.mc.kor.spi.registry.injection.KorJsonConfig;
 import com.sudoplay.mc.kor.spi.world.KorWorldGen;
 import com.sudoplay.mc.kormetals.KorMetals;
 import com.sudoplay.mc.kormetals.module.ore.ModuleOre;

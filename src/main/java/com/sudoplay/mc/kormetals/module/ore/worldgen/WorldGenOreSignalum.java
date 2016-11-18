@@ -6,12 +6,12 @@ import com.sudoplay.mc.kor.spi.config.json.component.world.oregen.DimensionProfi
 import com.sudoplay.mc.kor.spi.config.json.component.world.oregen.KorOreGenConfig;
 import com.sudoplay.mc.kor.spi.registry.dependency.KorRegistrationTextConfigDependency;
 import com.sudoplay.mc.kor.spi.registry.dependency.KorTextConfigDependency;
-import com.sudoplay.mc.kor.spi.registry.injection.KorJsonConfig;
 import com.sudoplay.mc.kor.spi.registry.injection.KorInject;
+import com.sudoplay.mc.kor.spi.registry.injection.KorJsonConfig;
 import com.sudoplay.mc.kor.spi.world.KorWorldGen;
 import com.sudoplay.mc.kormetals.module.ore.ModuleOre;
-import com.sudoplay.mc.kormetals.module.ore.block.BlockOre;
-import com.sudoplay.mc.kormetals.shared.MetalType;
+import com.sudoplay.mc.kormetals.module.ore.block.BlockOreAlloy;
+import com.sudoplay.mc.kormetals.shared.MetalAlloyType;
 
 /**
  * Created by sk3lls on 11/8/2016.
@@ -58,7 +58,7 @@ public class WorldGenOreSignalum extends
   ) {
     super(
         config,
-        kor.get(BlockOre.class).getDefaultState().withProperty(BlockOre.TYPE, MetalType.Signalum)
+        kor.get(BlockOreAlloy.class).getDefaultState().withProperty(BlockOreAlloy.TYPE, MetalAlloyType.Signalum)
     );
   }
 }

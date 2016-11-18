@@ -1,6 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "ctkormetals:blocks/nether_ore_electrum"
-  }
-}

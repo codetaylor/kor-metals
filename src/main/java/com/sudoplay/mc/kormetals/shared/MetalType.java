@@ -9,41 +9,29 @@ import com.sudoplay.mc.kor.spi.item.ISubType;
 public enum MetalType implements
     ISubType {
 
-  @SerializedName("brass")
-  Brass(0, "brass"),
+  @SerializedName("aluminum")
+  Aluminum(0, "aluminum"),
 
   @SerializedName("copper")
   Copper(1, "copper"),
 
-  @SerializedName("electrum")
-  Electrum(2, "electrum"),
-
-  @SerializedName("enderium")
-  Enderium(3, "enderium"),
-
-  @SerializedName("invar")
-  Invar(4, "invar"),
-
   @SerializedName("lead")
-  Lead(5, "lead"),
-
-  @SerializedName("lumium")
-  Lumium(6, "lumium"),
+  Lead(2, "lead"),
 
   @SerializedName("nickel")
-  Nickel(7, "nickel"),
+  Nickel(3, "nickel"),
 
   @SerializedName("platinum")
-  Platinum(8, "platinum"),
-
-  @SerializedName("signalum")
-  Signalum(9, "signalum"),
+  Platinum(4, "platinum"),
 
   @SerializedName("silver")
-  Silver(10, "silver"),
+  Silver(5, "silver"),
 
   @SerializedName("tin")
-  Tin(11, "tin");
+  Tin(6, "tin"),
+
+  @SerializedName("zinc")
+  Zinc(7, "zinc");
 
   private int meta;
   private String name;
@@ -61,5 +49,16 @@ public enum MetalType implements
   @Override
   public int getMeta() {
     return this.meta;
+  }
+
+  public static MetalType fromName(String name) {
+
+    for (MetalType metalType : MetalType.values()) {
+
+      if (metalType.name.equals(name)) {
+        return metalType;
+      }
+    }
+    throw new IllegalArgumentException("Unknown metal type: " + name);
   }
 }

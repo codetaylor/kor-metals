@@ -5,8 +5,10 @@ import com.sudoplay.mc.kor.spi.IKorModule;
 import com.sudoplay.mc.kor.spi.event.internal.*;
 import com.sudoplay.mc.kormetals.KorMetalsCreativeTab;
 import com.sudoplay.mc.kormetals.module.ore.block.BlockNetherOre;
+import com.sudoplay.mc.kormetals.module.ore.block.BlockNetherOreAlloy;
 import com.sudoplay.mc.kormetals.module.ore.block.BlockOre;
-import com.sudoplay.mc.kormetals.module.ore.recipe.RecipeSmeltingNetherOreDelegate;
+import com.sudoplay.mc.kormetals.module.ore.block.BlockOreAlloy;
+import com.sudoplay.mc.kormetals.module.ore.recipe.RecipeRegistrationDelegate;
 import com.sudoplay.mc.kormetals.module.ore.worldgen.*;
 
 import java.io.File;
@@ -25,7 +27,6 @@ public class ModuleOre implements
     public static final String CATEGORY_BLOCK_ORE_NETHER = "1:block:ore_nether";
     public static final String CATEGORY_WORLDGEN_ORE_OVERWORLD = "1:worldgen:ore_overworld";
     public static final String CATEGORY_WORLDGEN_ORE_NETHER = "1:worldgen:ore_nether";
-    public static final String CATEGORY_SMELTING_NETHER_ORE_TO_ORE = "1:smelting:nether_ore_to_ore";
 
     public static class OreGenOverworld {
       public static final String CONFIG_PATH = MODULE_ID + "/worldgen/ore_overworld";
@@ -65,7 +66,9 @@ public class ModuleOre implements
     event.getRegistryService().register(
 
         BlockOre.class,
-        BlockNetherOre.class
+        BlockOreAlloy.class,
+        BlockNetherOre.class,
+        BlockNetherOreAlloy.class
     );
   }
 
@@ -108,11 +111,9 @@ public class ModuleOre implements
   }
 
   @Subscribe
-  public void onRegisterRecipesEvent(OnRegisterRecipesEvent event) {
+  public void onRegisterRecipes(OnRegisterRecipesEvent event) {
     event.getRegistryService().register(
-
-        // Smelting Nether Ore
-        RecipeSmeltingNetherOreDelegate.class
+        RecipeRegistrationDelegate.class
     );
   }
 }

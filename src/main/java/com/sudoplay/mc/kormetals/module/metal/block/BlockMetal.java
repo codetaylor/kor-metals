@@ -14,7 +14,6 @@ import com.sudoplay.mc.kor.spi.registry.injection.KorTextConfig;
 import com.sudoplay.mc.kormetals.KorMetals;
 import com.sudoplay.mc.kormetals.KorMetalsCreativeTab;
 import com.sudoplay.mc.kormetals.module.metal.ModuleMetal;
-import com.sudoplay.mc.kormetals.module.ore.ModuleOre;
 import com.sudoplay.mc.kormetals.module.ore.config.ConfigBlockEntry;
 import com.sudoplay.mc.kormetals.shared.MetalType;
 import net.minecraft.block.material.Material;
@@ -27,6 +26,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
@@ -99,16 +99,16 @@ public class BlockMetal extends
 
     public Config() {
       this.configEntryMap = new EnumMap<>(MetalType.class);
-      this.configEntryMap.put(Brass, new ConfigBlockEntry(3.0f, 5.0f, 3));
+      //this.configEntryMap.put(Brass, new ConfigBlockEntry(3.0f, 5.0f, 3));
       this.configEntryMap.put(Copper, new ConfigBlockEntry(3.0f, 5.0f, 1));
-      this.configEntryMap.put(Electrum, new ConfigBlockEntry(3.0f, 5.0f, 3));
-      this.configEntryMap.put(Enderium, new ConfigBlockEntry(3.0f, 5.0f, 3));
-      this.configEntryMap.put(Invar, new ConfigBlockEntry(3.0f, 5.0f, 3));
+      //this.configEntryMap.put(Electrum, new ConfigBlockEntry(3.0f, 5.0f, 3));
+      //this.configEntryMap.put(Enderium, new ConfigBlockEntry(3.0f, 5.0f, 3));
+      //this.configEntryMap.put(Invar, new ConfigBlockEntry(3.0f, 5.0f, 3));
       this.configEntryMap.put(Lead, new ConfigBlockEntry(3.0f, 5.0f, 2));
-      this.configEntryMap.put(Lumium, new ConfigBlockEntry(3.0f, 5.0f, 3));
+      //this.configEntryMap.put(Lumium, new ConfigBlockEntry(3.0f, 5.0f, 3));
       this.configEntryMap.put(Nickel, new ConfigBlockEntry(3.0f, 5.0f, 2));
       this.configEntryMap.put(Platinum, new ConfigBlockEntry(3.0f, 5.0f, 2));
-      this.configEntryMap.put(Signalum, new ConfigBlockEntry(3.0f, 5.0f, 3));
+      //this.configEntryMap.put(Signalum, new ConfigBlockEntry(3.0f, 5.0f, 3));
       this.configEntryMap.put(Silver, new ConfigBlockEntry(3.0f, 5.0f, 2));
       this.configEntryMap.put(Tin, new ConfigBlockEntry(3.0f, 5.0f, 1));
     }
@@ -118,7 +118,7 @@ public class BlockMetal extends
     }
   }
 
-  public static final PropertyEnum<MetalType> TYPE = PropertyEnum.create("type", MetalType.class);
+  public static PropertyEnum<MetalType> TYPE;
 
   private final Config config;
 
@@ -132,38 +132,54 @@ public class BlockMetal extends
         kor.getModId(),
         "block",
         Material.ROCK,
-        TYPE,
-        MetalType.class,
-        new boolean[]{
-            isEnabled("brass", configData),
-            isEnabled("copper", configData),
-            isEnabled("electrum", configData),
-            isEnabled("enderium", configData),
-            isEnabled("invar", configData),
-            isEnabled("lead", configData),
-            isEnabled("lumium", configData),
-            isEnabled("nickel", configData),
-            isEnabled("platinum", configData),
-            isEnabled("signalum", configData),
-            isEnabled("silver", configData),
-            isEnabled("tin", configData)
-        }
+        (TYPE = PropertyEnum.create("type", MetalType.class, getAllowedValues(configData))),
+        MetalType.class
     );
     this.setCreativeTab(kor.get(KorMetalsCreativeTab.class));
     this.setDefaultState(this.getBlockState().getBaseState().withProperty(TYPE, MetalType.Copper));
     this.config = config;
   }
 
-  private static boolean isEnabled(String key, TextConfigData configData) {
-    return configData.getCategory(ModuleMetal.Config.CATEGORY_BLOCK_METAL).getBoolean(key);
+  @Nonnull
+  private static MetalType[] getAllowedValues(@Nonnull TextConfigData configData) {
+    String[] allowedMetalTypes;
+    List<MetalType> allowedValueList;
+    boolean isEnabled;
+
+    allowedMetalTypes = new String[]{
+        "brass",
+        "copper",
+        "electrum",
+        "enderium",
+        "invar",
+        "lead",
+        "lumium",
+        "nickel",
+        "platinum",
+        "signalum",
+        "silver",
+        "tin"
+    };
+
+    allowedValueList = new ArrayList<>();
+
+    for (String name : allowedMetalTypes) {
+
+      isEnabled = configData.getCategory(ModuleMetal.Config.CATEGORY_BLOCK_METAL).getBoolean(name);
+
+      if (isEnabled) {
+        allowedValueList.add(MetalType.fromName(name));
+      }
+    }
+
+    return allowedValueList.toArray(new MetalType[allowedValueList.size()]);
   }
 
   @Override
   @Nonnull
   public List<KorOreDictionaryEntry> getKorOreDictionaryEntries(@Nonnull List<KorOreDictionaryEntry> store) {
-    MetalType[] metalTypes = MetalType.values();
 
-    for (MetalType metalType : metalTypes) {
+    for (MetalType metalType : TYPE.getAllowedValues()) {
       String name = metalType.getName();
       name = "block" + name.substring(0, 1).toUpperCase() + name.substring(1);
       store.add(new KorOreDictionaryEntry(name, metalType.getMeta()));
@@ -189,6 +205,6 @@ public class BlockMetal extends
 
   @Override
   public int getLightValue(@Nonnull IBlockState blockState, IBlockAccess world, @Nonnull BlockPos pos) {
-    return (blockState.getValue(TYPE) == MetalType.Lumium) ? 15 : 0;
+    return 0;//(blockState.getValue(TYPE) == MetalType.Lumium) ? 15 : 0;
   }
 }

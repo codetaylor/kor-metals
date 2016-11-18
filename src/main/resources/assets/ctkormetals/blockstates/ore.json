@@ -1,25 +1,13 @@
 {
   "variants": {
-    "type=brass": {
-      "model": "ctkormetals:ore_brass"
+    "type=aluminum": {
+      "model": "ctkormetals:ore_aluminum"
     },
     "type=copper": {
       "model": "ctkormetals:ore_copper"
     },
-    "type=electrum": {
-      "model": "ctkormetals:ore_electrum"
-    },
-    "type=enderium": {
-      "model": "ctkormetals:ore_enderium"
-    },
-    "type=invar": {
-      "model": "ctkormetals:ore_invar"
-    },
     "type=lead": {
       "model": "ctkormetals:ore_lead"
-    },
-    "type=lumium": {
-      "model": "ctkormetals:ore_lumium"
     },
     "type=nickel": {
       "model": "ctkormetals:ore_nickel"
@@ -27,14 +15,14 @@
     "type=platinum": {
       "model": "ctkormetals:ore_platinum"
     },
-    "type=signalum": {
-      "model": "ctkormetals:ore_signalum"
-    },
     "type=silver": {
       "model": "ctkormetals:ore_silver"
     },
     "type=tin": {
       "model": "ctkormetals:ore_tin"
+    },
+    "type=zinc": {
+      "model": "ctkormetals:ore_zinc"
     }
   }
 }

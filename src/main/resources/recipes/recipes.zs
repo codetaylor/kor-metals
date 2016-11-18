@@ -1,0 +1,1 @@
+furnace.addRecipe(<ctkormetals:ore:0> * 2, <ctkormetals:nether_ore:1>, 0.7);
