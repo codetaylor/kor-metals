@@ -17,11 +17,12 @@ import java.util.List;
 /* package */ abstract class AbstractItemMetal extends
     KorSubTypedItem {
 
-  private String name;
+  private String oreDictPrefix;
 
   /* package */ AbstractItemMetal(
       String modId,
       String name,
+      String oreDictPrefix,
       ISubType[] subTypes,
       TextConfigData configData
   ) {
@@ -30,7 +31,7 @@ import java.util.List;
         name,
         filterSubTypes(subTypes, configData)
     );
-    this.name = name;
+    this.oreDictPrefix = oreDictPrefix;
   }
 
   private static ISubType[] filterSubTypes(ISubType[] subTypes, TextConfigData configData) {
@@ -54,7 +55,7 @@ import java.util.List;
   public List<KorOreDictionaryEntry> getKorOreDictionaryEntries(@Nonnull List<KorOreDictionaryEntry> store) {
 
     for (ISubType subType : this.getSubTypes()) {
-      String name = Util.getOreDictName(subType.getName());
+      String name = this.oreDictPrefix + Util.getOreDictName(subType.getName());
       store.add(new KorOreDictionaryEntry(name, subType.getMeta()));
     }
     return store;

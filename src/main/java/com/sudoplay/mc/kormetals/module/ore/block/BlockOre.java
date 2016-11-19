@@ -145,7 +145,7 @@ public class BlockOre extends
   public List<KorOreDictionaryEntry> getKorOreDictionaryEntries(@Nonnull List<KorOreDictionaryEntry> store) {
 
     for (MetalType metalType : TYPE.getAllowedValues()) {
-      String name = Util.getOreDictName(metalType.getName());
+      String name = "ore" + Util.getOreDictName(metalType.getName());
       store.add(new KorOreDictionaryEntry(name, metalType.getMeta()));
     }
     return store;

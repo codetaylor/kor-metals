@@ -7,6 +7,7 @@ import com.sudoplay.mc.kor.core.recipe.shapeless.RecipeShapeless;
 import com.sudoplay.mc.kormetals.KorMetals;
 import com.sudoplay.mc.kormetals.shared.MetalAlloyType;
 import com.sudoplay.mc.kormetals.shared.MetalType;
+import com.sudoplay.mc.kormetals.util.Util;
 
 /**
  * Created by sk3lls on 11/19/2016.
@@ -23,7 +24,7 @@ public class Recipes extends
       int meta = metalType.getMeta();
       this.recipeShapelessMap.put(String.format("ingot_%s to nugget_%s", name, name), new RecipeShapeless(
           KorMetals.MOD_ID + ":nugget:" + meta + " * 9",
-          KorMetals.MOD_ID + ":ingot:" + meta
+          "ore:ingot" + Util.getOreDictName(name)
       ));
     }
 
@@ -32,25 +33,20 @@ public class Recipes extends
       int meta = metalType.getMeta();
       this.recipeShapelessMap.put(String.format("ingot_alloy_%s to nugget_alloy_%s", name, name), new RecipeShapeless(
           KorMetals.MOD_ID + ":nugget_alloy:" + meta + " * 9",
-          KorMetals.MOD_ID + ":ingot_alloy:" + meta
+          "ore:ingot" + Util.getOreDictName(name)
       ));
     }
 
     for (MetalType metalType : MetalType.values()) {
       String name = metalType.getName();
       int meta = metalType.getMeta();
+      String oreNuggetName = "ore:nugget" + Util.getOreDictName(name);
       this.recipeShapedMap.put(String.format("nugget_%s to ingot_%s", name, name), new RecipeShaped(
           KorMetals.MOD_ID + ":ingot:" + meta,
           new String[]{
-              KorMetals.MOD_ID + ":nugget:" + meta + ", " +
-                  KorMetals.MOD_ID + ":nugget:" + meta + ", " +
-                  KorMetals.MOD_ID + ":nugget:" + meta,
-              KorMetals.MOD_ID + ":nugget:" + meta + ", " +
-                  KorMetals.MOD_ID + ":nugget:" + meta + ", " +
-                  KorMetals.MOD_ID + ":nugget:" + meta,
-              KorMetals.MOD_ID + ":nugget:" + meta + ", " +
-                  KorMetals.MOD_ID + ":nugget:" + meta + ", " +
-                  KorMetals.MOD_ID + ":nugget:" + meta,
+              oreNuggetName + ", " + oreNuggetName + ", " + oreNuggetName,
+              oreNuggetName + ", " + oreNuggetName + ", " + oreNuggetName,
+              oreNuggetName + ", " + oreNuggetName + ", " + oreNuggetName,
           }
       ));
     }
@@ -58,18 +54,13 @@ public class Recipes extends
     for (MetalAlloyType metalType : MetalAlloyType.values()) {
       String name = metalType.getName();
       int meta = metalType.getMeta();
+      String oreNuggetName = "ore:nugget" + Util.getOreDictName(name);
       this.recipeShapedMap.put(String.format("nugget_alloy_%s to ingot_alloy_%s", name, name), new RecipeShaped(
           KorMetals.MOD_ID + ":ingot_alloy:" + meta,
           new String[]{
-              KorMetals.MOD_ID + ":nugget_alloy:" + meta + ", " +
-                  KorMetals.MOD_ID + ":nugget_alloy:" + meta + ", " +
-                  KorMetals.MOD_ID + ":nugget_alloy:" + meta,
-              KorMetals.MOD_ID + ":nugget_alloy:" + meta + ", " +
-                  KorMetals.MOD_ID + ":nugget_alloy:" + meta + ", " +
-                  KorMetals.MOD_ID + ":nugget_alloy:" + meta,
-              KorMetals.MOD_ID + ":nugget_alloy:" + meta + ", " +
-                  KorMetals.MOD_ID + ":nugget_alloy:" + meta + ", " +
-                  KorMetals.MOD_ID + ":nugget_alloy:" + meta,
+              oreNuggetName + ", " + oreNuggetName + ", " + oreNuggetName,
+              oreNuggetName + ", " + oreNuggetName + ", " + oreNuggetName,
+              oreNuggetName + ", " + oreNuggetName + ", " + oreNuggetName,
           }
       ));
     }
@@ -81,7 +72,7 @@ public class Recipes extends
       int meta = metalType.getMeta();
       this.recipeShapelessMap.put(String.format("block_%s to ingot_%s", name, name), new RecipeShapeless(
           KorMetals.MOD_ID + ":ingot:" + meta + " * 9",
-          KorMetals.MOD_ID + ":block:" + meta
+          "ore:block" + Util.getOreDictName(name)
       ));
     }
 
@@ -90,25 +81,20 @@ public class Recipes extends
       int meta = metalType.getMeta();
       this.recipeShapelessMap.put(String.format("block_alloy_%s to ingot_alloy_%s", name, name), new RecipeShapeless(
           KorMetals.MOD_ID + ":ingot_alloy:" + meta + " * 9",
-          KorMetals.MOD_ID + ":block_alloy:" + meta
+          "ore:block" + Util.getOreDictName(name)
       ));
     }
 
     for (MetalType metalType : MetalType.values()) {
       String name = metalType.getName();
       int meta = metalType.getMeta();
+      String oreIngotName = "ore:ingot" + Util.getOreDictName(name);
       this.recipeShapedMap.put(String.format("ingot_%s to block_%s", name, name), new RecipeShaped(
           KorMetals.MOD_ID + ":block:" + meta,
           new String[]{
-              KorMetals.MOD_ID + ":ingot:" + meta + ", " +
-                  KorMetals.MOD_ID + ":ingot:" + meta + ", " +
-                  KorMetals.MOD_ID + ":ingot:" + meta,
-              KorMetals.MOD_ID + ":ingot:" + meta + ", " +
-                  KorMetals.MOD_ID + ":ingot:" + meta + ", " +
-                  KorMetals.MOD_ID + ":ingot:" + meta,
-              KorMetals.MOD_ID + ":ingot:" + meta + ", " +
-                  KorMetals.MOD_ID + ":ingot:" + meta + ", " +
-                  KorMetals.MOD_ID + ":ingot:" + meta,
+              oreIngotName + ", " + oreIngotName + ", " + oreIngotName + meta,
+              oreIngotName + ", " + oreIngotName + ", " + oreIngotName + meta,
+              oreIngotName + ", " + oreIngotName + ", " + oreIngotName + meta,
           }
       ));
     }
@@ -116,18 +102,13 @@ public class Recipes extends
     for (MetalAlloyType metalType : MetalAlloyType.values()) {
       String name = metalType.getName();
       int meta = metalType.getMeta();
+      String oreIngotName = "ore:ingot" + Util.getOreDictName(name);
       this.recipeShapedMap.put(String.format("ingot_alloy_%s to block_alloy_%s", name, name), new RecipeShaped(
           KorMetals.MOD_ID + ":block_alloy:" + meta,
           new String[]{
-              KorMetals.MOD_ID + ":ingot_alloy:" + meta + ", " +
-                  KorMetals.MOD_ID + ":ingot_alloy:" + meta + ", " +
-                  KorMetals.MOD_ID + ":ingot_alloy:" + meta,
-              KorMetals.MOD_ID + ":ingot_alloy:" + meta + ", " +
-                  KorMetals.MOD_ID + ":ingot_alloy:" + meta + ", " +
-                  KorMetals.MOD_ID + ":ingot_alloy:" + meta,
-              KorMetals.MOD_ID + ":ingot_alloy:" + meta + ", " +
-                  KorMetals.MOD_ID + ":ingot_alloy:" + meta + ", " +
-                  KorMetals.MOD_ID + ":ingot_alloy:" + meta,
+              oreIngotName + ", " + oreIngotName + ", " + oreIngotName,
+              oreIngotName + ", " + oreIngotName + ", " + oreIngotName,
+              oreIngotName + ", " + oreIngotName + ", " + oreIngotName,
           }
       ));
     }

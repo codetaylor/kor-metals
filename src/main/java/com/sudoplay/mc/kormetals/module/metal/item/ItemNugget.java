@@ -80,6 +80,7 @@ public class ItemNugget extends
     super(
         kor.getModId(),
         NAME,
+        "nugget",
         MetalType.values(),
         configData
     );

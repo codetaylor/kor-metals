@@ -185,7 +185,7 @@ public class BlockMetalAlloy extends
   public List<KorOreDictionaryEntry> getKorOreDictionaryEntries(@Nonnull List<KorOreDictionaryEntry> store) {
 
     for (MetalAlloyType metalType : TYPE.getAllowedValues()) {
-      String name = Util.getOreDictName(metalType.getName());
+      String name = "block" + Util.getOreDictName(metalType.getName());
       store.add(new KorOreDictionaryEntry(name, metalType.getMeta()));
     }
     return store;

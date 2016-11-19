@@ -87,6 +87,7 @@ public class ItemNuggetAlloy extends
     super(
         kor.getModId(),
         NAME,
+        "nugget",
         MetalAlloyType.values(),
         configData
     );

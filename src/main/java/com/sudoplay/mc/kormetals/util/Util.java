@@ -8,7 +8,7 @@ public class Util {
   public static String getOreDictName(String name) {
     String[] parts = name.split("_");
 
-    String newName = "ore";
+    String newName = "";
 
     for (String part : parts) {
       newName += part.substring(0, 1).toUpperCase() + name.substring(1);

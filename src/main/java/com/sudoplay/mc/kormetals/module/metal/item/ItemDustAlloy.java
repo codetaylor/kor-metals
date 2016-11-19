@@ -87,6 +87,7 @@ public class ItemDustAlloy extends
     super(
         kor.getModId(),
         NAME,
+        "dust",
         MetalAlloyType.values(),
         configData
     );

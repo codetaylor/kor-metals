@@ -85,6 +85,7 @@ public class ItemIngotAlloy extends
     super(
         kor.getModId(),
         NAME,
+        "ingot",
         MetalAlloyType.values(),
         configData
     );

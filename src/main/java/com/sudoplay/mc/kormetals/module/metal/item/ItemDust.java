@@ -79,6 +79,7 @@ public class ItemDust extends
     super(
         kor.getModId(),
         NAME,
+        "dust",
         MetalType.values(),
         configData
     );
