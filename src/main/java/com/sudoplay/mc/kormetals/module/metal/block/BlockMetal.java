@@ -19,6 +19,7 @@ import com.sudoplay.mc.kormetals.KorMetalsCreativeTab;
 import com.sudoplay.mc.kormetals.module.metal.ModuleMetal;
 import com.sudoplay.mc.kormetals.module.ore.config.ConfigBlockEntry;
 import com.sudoplay.mc.kormetals.shared.MetalType;
+import com.sudoplay.mc.kormetals.util.Util;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
@@ -174,8 +175,7 @@ public class BlockMetal extends
   public List<KorOreDictionaryEntry> getKorOreDictionaryEntries(@Nonnull List<KorOreDictionaryEntry> store) {
 
     for (MetalType metalType : TYPE.getAllowedValues()) {
-      String name = metalType.getName();
-      name = "block" + name.substring(0, 1).toUpperCase() + name.substring(1);
+      String name = Util.getOreDictName(metalType.getName());
       store.add(new KorOreDictionaryEntry(name, metalType.getMeta()));
     }
     return store;

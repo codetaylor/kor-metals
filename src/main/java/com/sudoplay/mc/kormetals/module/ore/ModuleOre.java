@@ -113,6 +113,7 @@ public class ModuleOre implements
   @Subscribe
   public void onRegisterRecipes(OnRegisterRecipesEvent event) {
     event.getRegistryService().register(
+
         RecipeRegistrationDelegate.class
     );
   }
