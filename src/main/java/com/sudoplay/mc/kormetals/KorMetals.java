@@ -53,8 +53,8 @@ public class KorMetals extends
 
     this.registerModules(
         // Register modules here
-        new ModuleOre()//,
-        //new ModuleMetal()
+        new ModuleOre(),
+        new ModuleMetal()
     );
 
     super.onPreInitialization(event);

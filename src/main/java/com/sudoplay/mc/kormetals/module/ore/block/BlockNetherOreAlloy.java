@@ -102,7 +102,7 @@ public class BlockNetherOreAlloy extends
   @KorInject
   public BlockNetherOreAlloy(
       Kor kor,
-      @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "nether_ore_alloy.json") ConfigBlockNetherOreAlloy config,
+      @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "nether_ore_alloy_properties.json") ConfigBlockNetherOreAlloy config,
       @KorTextConfig(path = ModuleOre.MODULE_ID, file = ModuleOre.MODULE_ID + ".cfg") TextConfigData configData
   ) {
     super(
@@ -124,7 +124,7 @@ public class BlockNetherOreAlloy extends
     boolean isEnabled;
 
     allowedMetalTypes = new String[]{
-        "aluminumBrass",
+        "aluminum_brass",
         "brass",
         "bronze",
         "constantan",

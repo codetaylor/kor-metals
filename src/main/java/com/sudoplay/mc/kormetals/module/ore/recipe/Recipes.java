@@ -16,17 +16,19 @@ public class Recipes extends
 
     for (MetalType metalType : MetalType.values()) {
       String name = metalType.getName();
-      this.recipeFurnaceList.put(String.format("nether_ore_%s to ore_%s", name, name), new RecipeFurnace(
-          KorMetals.MOD_ID + ":ore:" + metalType.getMeta() + " * 2",
-          KorMetals.MOD_ID + ":nether_ore:" + metalType.getMeta(), 0.7f
+      int meta = metalType.getMeta();
+      this.recipeFurnaceMap.put(String.format("nether_ore_%s to ore_%s", name, name), new RecipeFurnace(
+          KorMetals.MOD_ID + ":ore:" + meta + " * 2",
+          KorMetals.MOD_ID + ":nether_ore:" + meta, 0.7f
       ));
     }
 
     for (MetalAlloyType metalType : MetalAlloyType.values()) {
       String name = metalType.getName();
-      this.recipeFurnaceList.put(String.format("nether_ore_alloy_%s to ore_alloy_%s", name, name), new RecipeFurnace(
-          KorMetals.MOD_ID + ":ore_alloy:" + metalType.getMeta() + " * 2",
-          KorMetals.MOD_ID + ":nether_ore_alloy:" + metalType.getMeta(), 1.0f
+      int meta = metalType.getMeta();
+      this.recipeFurnaceMap.put(String.format("nether_ore_alloy_%s to ore_alloy_%s", name, name), new RecipeFurnace(
+          KorMetals.MOD_ID + ":ore_alloy:" + meta + " * 2",
+          KorMetals.MOD_ID + ":nether_ore_alloy:" + meta, 1.0f
       ));
     }
   }

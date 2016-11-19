@@ -94,7 +94,7 @@ public class BlockNetherOre extends
   @KorInject
   public BlockNetherOre(
       Kor kor,
-      @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "nether_ore.json") ConfigBlockNetherOre config,
+      @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "nether_ore_properties.json") ConfigBlockNetherOre config,
       @KorTextConfig(path = ModuleOre.MODULE_ID, file = ModuleOre.MODULE_ID + ".cfg") TextConfigData configData
   ) {
     super(

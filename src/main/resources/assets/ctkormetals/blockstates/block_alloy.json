@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "type=aluminum_brass": {
+      "model": "ctkormetals:block_alloy_aluminum_brass"
+    },
+    "type=brass": {
+      "model": "ctkormetals:block_alloy_brass"
+    },
+    "type=bronze": {
+      "model": "ctkormetals:block_alloy_bronze"
+    },
+    "type=constantan": {
+      "model": "ctkormetals:block_alloy_constantan"
+    },
+    "type=electrum": {
+      "model": "ctkormetals:block_alloy_electrum"
+    },
+    "type=enderium": {
+      "model": "ctkormetals:block_alloy_enderium"
+    },
+    "type=invar": {
+      "model": "ctkormetals:block_alloy_invar"
+    },
+    "type=lumium": {
+      "model": "ctkormetals:block_alloy_lumium"
+    },
+    "type=signalum": {
+      "model": "ctkormetals:block_alloy_signalum"
+    },
+    "type=steel": {
+      "model": "ctkormetals:block_alloy_steel"
+    }
+  }
+}

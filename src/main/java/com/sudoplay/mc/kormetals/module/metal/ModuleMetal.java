@@ -5,10 +5,11 @@ import com.sudoplay.mc.kor.spi.IKorModule;
 import com.sudoplay.mc.kor.spi.event.internal.OnLoadConfigurationsEvent;
 import com.sudoplay.mc.kor.spi.event.internal.OnRegisterBlocksEvent;
 import com.sudoplay.mc.kor.spi.event.internal.OnRegisterItemsEvent;
+import com.sudoplay.mc.kor.spi.event.internal.OnRegisterRecipesEvent;
 import com.sudoplay.mc.kormetals.module.metal.block.BlockMetal;
-import com.sudoplay.mc.kormetals.module.metal.item.ItemDust;
-import com.sudoplay.mc.kormetals.module.metal.item.ItemIngot;
-import com.sudoplay.mc.kormetals.module.metal.item.ItemNugget;
+import com.sudoplay.mc.kormetals.module.metal.block.BlockMetalAlloy;
+import com.sudoplay.mc.kormetals.module.metal.item.*;
+import com.sudoplay.mc.kormetals.module.metal.recipe.RecipeRegistrationDelegate;
 
 import java.io.File;
 
@@ -48,7 +49,8 @@ public class ModuleMetal implements
   public void onRegisterBlocks(OnRegisterBlocksEvent event) {
     event.getRegistryService().register(
 
-        BlockMetal.class
+        BlockMetal.class,
+        BlockMetalAlloy.class
     );
   }
 
@@ -57,8 +59,19 @@ public class ModuleMetal implements
     event.getRegistryService().register(
 
         ItemIngot.class,
+        ItemIngotAlloy.class,
         ItemNugget.class,
-        ItemDust.class
+        ItemNuggetAlloy.class,
+        ItemDust.class,
+        ItemDustAlloy.class
+    );
+  }
+
+  @Subscribe
+  public void onRegisterRecipes(OnRegisterRecipesEvent event) {
+    event.getRegistryService().register(
+
+        RecipeRegistrationDelegate.class
     );
   }
 }

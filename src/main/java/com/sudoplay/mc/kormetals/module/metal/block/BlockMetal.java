@@ -1,5 +1,6 @@
 package com.sudoplay.mc.kormetals.module.metal.block;
 
+import com.google.common.collect.Iterables;
 import com.google.gson.annotations.SerializedName;
 import com.sudoplay.mc.kor.core.config.text.TextConfigData;
 import com.sudoplay.mc.kor.core.generation.annotation.*;
@@ -8,6 +9,8 @@ import com.sudoplay.mc.kor.spi.block.KorSubTypedEnumBlock;
 import com.sudoplay.mc.kor.spi.config.json.KorConfigObject;
 import com.sudoplay.mc.kor.spi.registry.KorOreDictionaryEntry;
 import com.sudoplay.mc.kor.spi.registry.KorOreDictionaryEntryProvider;
+import com.sudoplay.mc.kor.spi.registry.dependency.KorRegistrationTextConfigDependency;
+import com.sudoplay.mc.kor.spi.registry.dependency.KorTextConfigDependency;
 import com.sudoplay.mc.kor.spi.registry.injection.KorInject;
 import com.sudoplay.mc.kor.spi.registry.injection.KorJsonConfig;
 import com.sudoplay.mc.kor.spi.registry.injection.KorTextConfig;
@@ -22,7 +25,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
@@ -37,54 +39,54 @@ import static com.sudoplay.mc.kormetals.shared.MetalType.*;
  * Created by sk3lls on 11/9/2016.
  */
 
+@KorRegistrationTextConfigDependency(dependsOnAtLeastOneOf = {
+    @KorTextConfigDependency(filename = ModuleMetal.Config.FILENAME, category = ModuleMetal.Config.CATEGORY_BLOCK_METAL, key = "aluminum"),
+    @KorTextConfigDependency(filename = ModuleMetal.Config.FILENAME, category = ModuleMetal.Config.CATEGORY_BLOCK_METAL, key = "copper"),
+    @KorTextConfigDependency(filename = ModuleMetal.Config.FILENAME, category = ModuleMetal.Config.CATEGORY_BLOCK_METAL, key = "lead"),
+    @KorTextConfigDependency(filename = ModuleMetal.Config.FILENAME, category = ModuleMetal.Config.CATEGORY_BLOCK_METAL, key = "nickel"),
+    @KorTextConfigDependency(filename = ModuleMetal.Config.FILENAME, category = ModuleMetal.Config.CATEGORY_BLOCK_METAL, key = "platinum"),
+    @KorTextConfigDependency(filename = ModuleMetal.Config.FILENAME, category = ModuleMetal.Config.CATEGORY_BLOCK_METAL, key = "silver"),
+    @KorTextConfigDependency(filename = ModuleMetal.Config.FILENAME, category = ModuleMetal.Config.CATEGORY_BLOCK_METAL, key = "tin"),
+    @KorTextConfigDependency(filename = ModuleMetal.Config.FILENAME, category = ModuleMetal.Config.CATEGORY_BLOCK_METAL, key = "zinc")
+})
+
 @KorGenerateBlockSubTypedAssets(
     property = "type",
     name = "block",
     modId = KorMetals.MOD_ID,
     subTypes = {
-        "brass",
+        "aluminum",
         "copper",
-        "electrum",
-        "enderium",
-        "invar",
         "lead",
-        "lumium",
         "nickel",
         "platinum",
-        "signalum",
         "silver",
-        "tin"
+        "tin",
+        "zinc"
     }
 )
 
 @KorGenerateLangEntries(entries = {
-    @KorLangEntry(key = "tile.block_brass.name", value = "Brass Block"),
+    @KorLangEntry(key = "tile.block_aluminum.name", value = "Alumina Block"),
     @KorLangEntry(key = "tile.block_copper.name", value = "Copper Block"),
-    @KorLangEntry(key = "tile.block_electrum.name", value = "Electrum Block"),
-    @KorLangEntry(key = "tile.block_enderium.name", value = "Enderium Block"),
-    @KorLangEntry(key = "tile.block_invar.name", value = "Invar Block"),
     @KorLangEntry(key = "tile.block_lead.name", value = "Lead Block"),
-    @KorLangEntry(key = "tile.block_lumium.name", value = "Lumium Block"),
     @KorLangEntry(key = "tile.block_nickel.name", value = "Nickel Block"),
     @KorLangEntry(key = "tile.block_platinum.name", value = "Platinum Block"),
-    @KorLangEntry(key = "tile.block_signalum.name", value = "Signalum Block"),
     @KorLangEntry(key = "tile.block_silver.name", value = "Silver Block"),
-    @KorLangEntry(key = "tile.block_tin.name", value = "Tin Block")
+    @KorLangEntry(key = "tile.block_tin.name", value = "Tin Block"),
+    @KorLangEntry(key = "tile.block_zinc.name", value = "Zinc Block")
 })
 
 @KorGenerateImageSlices(slices = {
-    @KorImageSliceEntry(col = 7, row = 4, target = "blocks/block_brass", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 17, row = 4, target = "blocks/block_aluminum", source = "KorMetals.png"),
     @KorImageSliceEntry(col = 1, row = 4, target = "blocks/block_copper", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 9, row = 4, target = "blocks/block_electrum", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 12, row = 4, target = "blocks/block_enderium", source = "KorMetals.png"),
     @KorImageSliceEntry(col = 8, row = 4, target = "blocks/block_invar", source = "KorMetals.png"),
     @KorImageSliceEntry(col = 4, row = 4, target = "blocks/block_lead", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 11, row = 4, target = "blocks/block_lumium", source = "KorMetals.png"),
     @KorImageSliceEntry(col = 5, row = 4, target = "blocks/block_nickel", source = "KorMetals.png"),
     @KorImageSliceEntry(col = 6, row = 4, target = "blocks/block_platinum", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 10, row = 4, target = "blocks/block_signalum", source = "KorMetals.png"),
     @KorImageSliceEntry(col = 3, row = 4, target = "blocks/block_silver", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 2, row = 4, target = "blocks/block_tin", source = "KorMetals.png")
+    @KorImageSliceEntry(col = 2, row = 4, target = "blocks/block_tin", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 16, row = 4, target = "blocks/block_zinc", source = "KorMetals.png")
 })
 
 public class BlockMetal extends
@@ -99,18 +101,14 @@ public class BlockMetal extends
 
     public Config() {
       this.configEntryMap = new EnumMap<>(MetalType.class);
-      //this.configEntryMap.put(Brass, new ConfigBlockEntry(3.0f, 5.0f, 3));
+      this.configEntryMap.put(Aluminum, new ConfigBlockEntry(3.0f, 5.0f, 1));
       this.configEntryMap.put(Copper, new ConfigBlockEntry(3.0f, 5.0f, 1));
-      //this.configEntryMap.put(Electrum, new ConfigBlockEntry(3.0f, 5.0f, 3));
-      //this.configEntryMap.put(Enderium, new ConfigBlockEntry(3.0f, 5.0f, 3));
-      //this.configEntryMap.put(Invar, new ConfigBlockEntry(3.0f, 5.0f, 3));
       this.configEntryMap.put(Lead, new ConfigBlockEntry(3.0f, 5.0f, 2));
-      //this.configEntryMap.put(Lumium, new ConfigBlockEntry(3.0f, 5.0f, 3));
       this.configEntryMap.put(Nickel, new ConfigBlockEntry(3.0f, 5.0f, 2));
       this.configEntryMap.put(Platinum, new ConfigBlockEntry(3.0f, 5.0f, 2));
-      //this.configEntryMap.put(Signalum, new ConfigBlockEntry(3.0f, 5.0f, 3));
       this.configEntryMap.put(Silver, new ConfigBlockEntry(3.0f, 5.0f, 2));
       this.configEntryMap.put(Tin, new ConfigBlockEntry(3.0f, 5.0f, 1));
+      this.configEntryMap.put(Zinc, new ConfigBlockEntry(3.0f, 5.0f, 1));
     }
 
     public ConfigBlockEntry get(MetalType key) {
@@ -136,7 +134,7 @@ public class BlockMetal extends
         MetalType.class
     );
     this.setCreativeTab(kor.get(KorMetalsCreativeTab.class));
-    this.setDefaultState(this.getBlockState().getBaseState().withProperty(TYPE, MetalType.Copper));
+    this.setDefaultState(this.getBlockState().getBaseState().withProperty(TYPE, Iterables.get(TYPE.getAllowedValues(), 0)));
     this.config = config;
   }
 
@@ -147,18 +145,14 @@ public class BlockMetal extends
     boolean isEnabled;
 
     allowedMetalTypes = new String[]{
-        "brass",
+        "aluminum",
         "copper",
-        "electrum",
-        "enderium",
-        "invar",
         "lead",
-        "lumium",
         "nickel",
         "platinum",
-        "signalum",
         "silver",
-        "tin"
+        "tin",
+        "zinc"
     };
 
     allowedValueList = new ArrayList<>();
@@ -201,10 +195,5 @@ public class BlockMetal extends
   public float getExplosionResistance(World world, BlockPos pos, @Nonnull Entity exploder, Explosion explosion) {
     IBlockState blockState = world.getBlockState(pos);
     return this.config.get(blockState.getValue(TYPE)).getResistance();
-  }
-
-  @Override
-  public int getLightValue(@Nonnull IBlockState blockState, IBlockAccess world, @Nonnull BlockPos pos) {
-    return 0;//(blockState.getValue(TYPE) == MetalType.Lumium) ? 15 : 0;
   }
 }

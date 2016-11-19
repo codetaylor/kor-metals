@@ -94,7 +94,7 @@ public class BlockOre extends
   @KorInject
   public BlockOre(
       Kor kor,
-      @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "ore.json") ConfigBlockOre config,
+      @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "ore_properties.json") ConfigBlockOre config,
       @KorTextConfig(path = ModuleOre.MODULE_ID, file = ModuleOre.MODULE_ID + ".cfg") TextConfigData configData
   ) {
     super(

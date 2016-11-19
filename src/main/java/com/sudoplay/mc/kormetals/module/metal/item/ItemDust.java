@@ -3,9 +3,8 @@ package com.sudoplay.mc.kormetals.module.metal.item;
 import com.sudoplay.mc.kor.core.config.text.TextConfigData;
 import com.sudoplay.mc.kor.core.generation.annotation.*;
 import com.sudoplay.mc.kor.spi.Kor;
-import com.sudoplay.mc.kor.spi.item.ISubType;
-import com.sudoplay.mc.kor.spi.item.KorSubTypedItem;
-import com.sudoplay.mc.kor.spi.registry.KorOreDictionaryEntry;
+import com.sudoplay.mc.kor.spi.registry.dependency.KorRegistrationTextConfigDependency;
+import com.sudoplay.mc.kor.spi.registry.dependency.KorTextConfigDependency;
 import com.sudoplay.mc.kor.spi.registry.injection.KorInject;
 import com.sudoplay.mc.kor.spi.registry.injection.KorTextConfig;
 import com.sudoplay.mc.kormetals.KorMetals;
@@ -13,65 +12,64 @@ import com.sudoplay.mc.kormetals.KorMetalsCreativeTab;
 import com.sudoplay.mc.kormetals.module.metal.ModuleMetal;
 import com.sudoplay.mc.kormetals.shared.MetalType;
 
-import javax.annotation.Nonnull;
-import java.util.ArrayList;
-import java.util.List;
+import static com.sudoplay.mc.kormetals.module.metal.ModuleMetal.Config.*;
 
 /**
  * Created by sk3lls on 11/12/2016.
  */
 
+@KorRegistrationTextConfigDependency(dependsOnAtLeastOneOf = {
+    @KorTextConfigDependency(filename = FILENAME, category = CATEGORY_ITEM_DUST, key = "aluminum"),
+    @KorTextConfigDependency(filename = FILENAME, category = CATEGORY_ITEM_DUST, key = "copper"),
+    @KorTextConfigDependency(filename = FILENAME, category = CATEGORY_ITEM_DUST, key = "lead"),
+    @KorTextConfigDependency(filename = FILENAME, category = CATEGORY_ITEM_DUST, key = "nickel"),
+    @KorTextConfigDependency(filename = FILENAME, category = CATEGORY_ITEM_DUST, key = "platinum"),
+    @KorTextConfigDependency(filename = FILENAME, category = CATEGORY_ITEM_DUST, key = "silver"),
+    @KorTextConfigDependency(filename = FILENAME, category = CATEGORY_ITEM_DUST, key = "tin"),
+    @KorTextConfigDependency(filename = FILENAME, category = CATEGORY_ITEM_DUST, key = "zinc")
+})
+
 @KorGenerateItemSubTypedAssets(
-    name = "dust",
+    name = ItemDust.NAME,
     modId = KorMetals.MOD_ID,
     subTypes = {
-        "brass",
+        "aluminum",
         "copper",
-        "electrum",
-        "enderium",
-        "invar",
         "lead",
-        "lumium",
         "nickel",
         "platinum",
-        "signalum",
         "silver",
-        "tin"
+        "tin",
+        "zinc"
     }
 )
 
 @KorGenerateLangEntries(entries = {
-    @KorLangEntry(key = "item.dust_brass.name", value = "Brass Dust"),
-    @KorLangEntry(key = "item.dust_copper.name", value = "Copper Dust"),
-    @KorLangEntry(key = "item.dust_electrum.name", value = "Electrum Dust"),
-    @KorLangEntry(key = "item.dust_enderium.name", value = "Enderium Dust"),
-    @KorLangEntry(key = "item.dust_invar.name", value = "Invar Dust"),
-    @KorLangEntry(key = "item.dust_lead.name", value = "Lead Dust"),
-    @KorLangEntry(key = "item.dust_lumium.name", value = "Lumium Dust"),
-    @KorLangEntry(key = "item.dust_nickel.name", value = "Nickel Dust"),
-    @KorLangEntry(key = "item.dust_platinum.name", value = "Platinum Dust"),
-    @KorLangEntry(key = "item.dust_signalum.name", value = "Signalum Dust"),
-    @KorLangEntry(key = "item.dust_silver.name", value = "Silver Dust"),
-    @KorLangEntry(key = "item.dust_tin.name", value = "Tin Dust")
+    @KorLangEntry(key = "item." + ItemDust.NAME + "_aluminum.name", value = "Alumina Dust"),
+    @KorLangEntry(key = "item." + ItemDust.NAME + "_copper.name", value = "Copper Dust"),
+    @KorLangEntry(key = "item." + ItemDust.NAME + "_lead.name", value = "Lead Dust"),
+    @KorLangEntry(key = "item." + ItemDust.NAME + "_nickel.name", value = "Nickel Dust"),
+    @KorLangEntry(key = "item." + ItemDust.NAME + "_platinum.name", value = "Platinum Dust"),
+    @KorLangEntry(key = "item." + ItemDust.NAME + "_silver.name", value = "Silver Dust"),
+    @KorLangEntry(key = "item." + ItemDust.NAME + "_tin.name", value = "Tin Dust"),
+    @KorLangEntry(key = "item." + ItemDust.NAME + "_zinc.name", value = "Zinc Dust")
 })
 
 @KorGenerateImageSlices(slices = {
-    @KorImageSliceEntry(col = 7, row = 3, target = "items/dust_brass", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 1, row = 3, target = "items/dust_copper", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 9, row = 3, target = "items/dust_electrum", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 12, row = 3, target = "items/dust_enderium", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 8, row = 3, target = "items/dust_invar", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 4, row = 3, target = "items/dust_lead", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 11, row = 3, target = "items/dust_lumium", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 5, row = 3, target = "items/dust_nickel", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 6, row = 3, target = "items/dust_platinum", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 10, row = 3, target = "items/dust_signalum", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 3, row = 3, target = "items/dust_silver", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 2, row = 3, target = "items/dust_tin", source = "KorMetals.png")
+    @KorImageSliceEntry(col = 17, row = 3, target = "items/" + ItemDust.NAME + "_aluminum", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 1, row = 3, target = "items/" + ItemDust.NAME + "_copper", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 4, row = 3, target = "items/" + ItemDust.NAME + "_lead", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 5, row = 3, target = "items/" + ItemDust.NAME + "_nickel", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 6, row = 3, target = "items/" + ItemDust.NAME + "_platinum", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 3, row = 3, target = "items/" + ItemDust.NAME + "_silver", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 2, row = 3, target = "items/" + ItemDust.NAME + "_tin", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 16, row = 3, target = "items/" + ItemDust.NAME + "_zinc", source = "KorMetals.png")
 })
 
 public class ItemDust extends
-    KorSubTypedItem {
+    AbstractItemMetal {
+
+  /* package */ static final String NAME = "dust";
 
   @KorInject
   public ItemDust(
@@ -80,38 +78,10 @@ public class ItemDust extends
   ) {
     super(
         kor.getModId(),
-        "dust",
-        filterSubTypes(configData)
+        NAME,
+        MetalType.values(),
+        configData
     );
     this.setCreativeTab(kor.get(KorMetalsCreativeTab.class));
-  }
-
-  private static ISubType[] filterSubTypes(TextConfigData configData) {
-    List<ISubType> subTypeList = new ArrayList<>();
-
-    for (ISubType subType : MetalType.values()) {
-
-      if (isEnabled(subType.getName(), configData)) {
-        subTypeList.add(subType);
-      }
-    }
-    return subTypeList.toArray(new ISubType[subTypeList.size()]);
-  }
-
-  private static boolean isEnabled(String key, TextConfigData configData) {
-    return configData.getCategory(ModuleMetal.Config.CATEGORY_ITEM_DUST).getBoolean(key);
-  }
-
-  @Override
-  @Nonnull
-  public List<KorOreDictionaryEntry> getKorOreDictionaryEntries(@Nonnull List<KorOreDictionaryEntry> store) {
-    MetalType[] metalTypes = MetalType.values();
-
-    for (MetalType metalType : metalTypes) {
-      String name = metalType.getName();
-      name = "dust" + name.substring(0, 1).toUpperCase() + name.substring(1);
-      store.add(new KorOreDictionaryEntry(name, metalType.getMeta()));
-    }
-    return store;
   }
 }

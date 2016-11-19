@@ -103,7 +103,7 @@ public class BlockOreAlloy extends
   @KorInject
   public BlockOreAlloy(
       Kor kor,
-      @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "ore_alloy.json") ConfigBlockOreAlloy config,
+      @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "ore_alloy_properties.json") ConfigBlockOreAlloy config,
       @KorTextConfig(path = ModuleOre.MODULE_ID, file = ModuleOre.MODULE_ID + ".cfg") TextConfigData configData
   ) {
     super(
