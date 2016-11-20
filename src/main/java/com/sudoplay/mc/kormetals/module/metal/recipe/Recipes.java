@@ -46,7 +46,7 @@ public class Recipes extends
           new String[]{
               oreNuggetName + ", " + oreNuggetName + ", " + oreNuggetName,
               oreNuggetName + ", " + oreNuggetName + ", " + oreNuggetName,
-              oreNuggetName + ", " + oreNuggetName + ", " + oreNuggetName,
+              oreNuggetName + ", " + oreNuggetName + ", " + oreNuggetName
           }
       ));
     }
@@ -60,7 +60,7 @@ public class Recipes extends
           new String[]{
               oreNuggetName + ", " + oreNuggetName + ", " + oreNuggetName,
               oreNuggetName + ", " + oreNuggetName + ", " + oreNuggetName,
-              oreNuggetName + ", " + oreNuggetName + ", " + oreNuggetName,
+              oreNuggetName + ", " + oreNuggetName + ", " + oreNuggetName
           }
       ));
     }
@@ -92,9 +92,9 @@ public class Recipes extends
       this.recipeShapedMap.put(String.format("ingot_%s to block_%s", name, name), new RecipeShaped(
           KorMetals.MOD_ID + ":block:" + meta,
           new String[]{
-              oreIngotName + ", " + oreIngotName + ", " + oreIngotName + meta,
-              oreIngotName + ", " + oreIngotName + ", " + oreIngotName + meta,
-              oreIngotName + ", " + oreIngotName + ", " + oreIngotName + meta,
+              oreIngotName + ", " + oreIngotName + ", " + oreIngotName,
+              oreIngotName + ", " + oreIngotName + ", " + oreIngotName,
+              oreIngotName + ", " + oreIngotName + ", " + oreIngotName
           }
       ));
     }
@@ -108,7 +108,7 @@ public class Recipes extends
           new String[]{
               oreIngotName + ", " + oreIngotName + ", " + oreIngotName,
               oreIngotName + ", " + oreIngotName + ", " + oreIngotName,
-              oreIngotName + ", " + oreIngotName + ", " + oreIngotName,
+              oreIngotName + ", " + oreIngotName + ", " + oreIngotName
           }
       ));
     }

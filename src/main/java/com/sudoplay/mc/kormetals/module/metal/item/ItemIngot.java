@@ -46,14 +46,14 @@ import static com.sudoplay.mc.kormetals.module.metal.ModuleMetal.Config.FILENAME
 )
 
 @KorGenerateLangEntries(entries = {
-    @KorLangEntry(key = "item." + ItemIngot.NAME + "_aluminum.name", value = "Alumina Ore"),
-    @KorLangEntry(key = "item." + ItemIngot.NAME + "_copper.name", value = "Copper Ore"),
-    @KorLangEntry(key = "item." + ItemIngot.NAME + "_lead.name", value = "Lead Ore"),
-    @KorLangEntry(key = "item." + ItemIngot.NAME + "_nickel.name", value = "Nickel Ore"),
-    @KorLangEntry(key = "item." + ItemIngot.NAME + "_platinum.name", value = "Platinum Ore"),
-    @KorLangEntry(key = "item." + ItemIngot.NAME + "_silver.name", value = "Silver Ore"),
-    @KorLangEntry(key = "item." + ItemIngot.NAME + "_tin.name", value = "Tin Ore"),
-    @KorLangEntry(key = "item." + ItemIngot.NAME + "_zinc.name", value = "Zinc Ore")
+    @KorLangEntry(key = "item." + ItemIngot.NAME + "_aluminum.name", value = "Alumina Ingot"),
+    @KorLangEntry(key = "item." + ItemIngot.NAME + "_copper.name", value = "Copper Ingot"),
+    @KorLangEntry(key = "item." + ItemIngot.NAME + "_lead.name", value = "Lead Ingot"),
+    @KorLangEntry(key = "item." + ItemIngot.NAME + "_nickel.name", value = "Nickel Ingot"),
+    @KorLangEntry(key = "item." + ItemIngot.NAME + "_platinum.name", value = "Platinum Ingot"),
+    @KorLangEntry(key = "item." + ItemIngot.NAME + "_silver.name", value = "Silver Ingot"),
+    @KorLangEntry(key = "item." + ItemIngot.NAME + "_tin.name", value = "Tin Ingot"),
+    @KorLangEntry(key = "item." + ItemIngot.NAME + "_zinc.name", value = "Zinc Ingot")
 
 })
 

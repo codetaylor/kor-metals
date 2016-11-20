@@ -9,7 +9,8 @@ import com.sudoplay.mc.kormetals.module.ore.block.BlockNetherOreAlloy;
 import com.sudoplay.mc.kormetals.module.ore.block.BlockOre;
 import com.sudoplay.mc.kormetals.module.ore.block.BlockOreAlloy;
 import com.sudoplay.mc.kormetals.module.ore.recipe.RecipeRegistrationDelegate;
-import com.sudoplay.mc.kormetals.module.ore.worldgen.*;
+import com.sudoplay.mc.kormetals.module.ore.worldgen.WorldGenNetherOreRegistrationDelegate;
+import com.sudoplay.mc.kormetals.module.ore.worldgen.WorldGenOreRegistrationDelegate;
 
 import java.io.File;
 
@@ -27,14 +28,6 @@ public class ModuleOre implements
     public static final String CATEGORY_BLOCK_ORE_NETHER = "1:block:ore_nether";
     public static final String CATEGORY_WORLDGEN_ORE_OVERWORLD = "1:worldgen:ore_overworld";
     public static final String CATEGORY_WORLDGEN_ORE_NETHER = "1:worldgen:ore_nether";
-
-    public static class OreGenOverworld {
-      public static final String CONFIG_PATH = MODULE_ID + "/worldgen/ore_overworld";
-    }
-
-    public static class OreGenNether {
-      public static final String CONFIG_PATH = MODULE_ID + "/worldgen/ore_nether";
-    }
   }
 
   @Override
@@ -76,37 +69,8 @@ public class ModuleOre implements
   public void onRegisterWorldGenEvent(OnRegisterWorldGenEvent event) {
     event.getRegistryService().register(
 
-        // Alloy OreGen
-        WorldGenOreBrass.class,
-        WorldGenOreElectrum.class,
-        WorldGenOreEnderium.class,
-        WorldGenOreInvar.class,
-        WorldGenOreLumium.class,
-        WorldGenOreSignalum.class,
-
-        // Regular OreGen
-        WorldGenOreCopper.class,
-        WorldGenOreLead.class,
-        WorldGenOreNickel.class,
-        WorldGenOrePlatinum.class,
-        WorldGenOreSilver.class,
-        WorldGenOreTin.class,
-
-        // Nether Alloy OreGen
-        WorldGenNetherOreBrass.class,
-        WorldGenNetherOreElectrum.class,
-        WorldGenNetherOreEnderium.class,
-        WorldGenNetherOreInvar.class,
-        WorldGenNetherOreLumium.class,
-        WorldGenNetherOreSignalum.class,
-
-        // Nether Regular OreGen
-        WorldGenNetherOreCopper.class,
-        WorldGenNetherOreLead.class,
-        WorldGenNetherOreNickel.class,
-        WorldGenNetherOrePlatinum.class,
-        WorldGenNetherOreSilver.class,
-        WorldGenNetherOreTin.class
+        WorldGenOreRegistrationDelegate.class,
+        WorldGenNetherOreRegistrationDelegate.class
     );
   }
 

@@ -11,7 +11,7 @@ public class Util {
     String newName = "";
 
     for (String part : parts) {
-      newName += part.substring(0, 1).toUpperCase() + name.substring(1);
+      newName += part.substring(0, 1).toUpperCase() + part.substring(1);
     }
     return newName;
   }
