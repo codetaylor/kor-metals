@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "type=aluminum": {
+      "model": "ctkormetals:end_ore_aluminum"
+    },
+    "type=copper": {
+      "model": "ctkormetals:end_ore_copper"
+    },
+    "type=lead": {
+      "model": "ctkormetals:end_ore_lead"
+    },
+    "type=nickel": {
+      "model": "ctkormetals:end_ore_nickel"
+    },
+    "type=platinum": {
+      "model": "ctkormetals:end_ore_platinum"
+    },
+    "type=silver": {
+      "model": "ctkormetals:end_ore_silver"
+    },
+    "type=tin": {
+      "model": "ctkormetals:end_ore_tin"
+    },
+    "type=zinc": {
+      "model": "ctkormetals:end_ore_zinc"
+    }
+  }
+}

@@ -14,7 +14,8 @@ import java.util.Map;
  * Created by sk3lls on 11/19/2016.
  */
 public class ConfigOreGen extends
-    KorConfigObject {
+    KorConfigObject implements
+    KorConfigOreGen {
 
   private static final int DIMENSION_ID = 0;
   private static final int DEFAULT_MOD_GENERATION_WEIGHT = 0;
@@ -27,57 +28,58 @@ public class ConfigOreGen extends
 
     // normal ores
 
-    this.register("aluminum",
+    this.set("aluminum",
         new DimensionProfile(DIMENSION_ID, 10, "minecraft:stone", new MinMaxInt(8, 16), new MinMaxInt(40, 75)),
         new DimensionProfile(DIMENSION_ID, 10, "minecraft:stone", new MinMaxInt(3, 8), new MinMaxInt(48, 96))
     );
 
-    this.register("copper",
+    this.set("copper",
         new DimensionProfile(DIMENSION_ID, 10, "minecraft:stone", new MinMaxInt(8, 16), new MinMaxInt(40, 75)),
         new DimensionProfile(DIMENSION_ID, 10, "minecraft:stone", new MinMaxInt(3, 8), new MinMaxInt(48, 96))
     );
 
-    this.register("lead",
+    this.set("lead",
         new DimensionProfile(DIMENSION_ID, 5, "minecraft:stone", new MinMaxInt(3, 6), new MinMaxInt(2, 35)),
         new DimensionProfile(DIMENSION_ID, 12, "minecraft:stone", new MinMaxInt(2, 3), new MinMaxInt(20, 25))
     );
 
-    this.register("nickel",
+    this.set("nickel",
         new DimensionProfile(DIMENSION_ID, 3, "minecraft:stone", new MinMaxInt(1, 3), new MinMaxInt(5, 20))
     );
 
-    this.register("platinum",
+    this.set("platinum",
         new DimensionProfile(DIMENSION_ID, 3, "minecraft:stone", new MinMaxInt(1, 2), new MinMaxInt(11, 28))
     );
 
-    this.register("silver",
+    this.set("silver",
         new DimensionProfile(DIMENSION_ID, 5, "minecraft:stone", new MinMaxInt(1, 2), new MinMaxInt(5, 30)),
         new DimensionProfile(DIMENSION_ID, 2, "minecraft:stone", new MinMaxInt(6, 8), new MinMaxInt(10, 35))
     );
 
-    this.register("tin",
+    this.set("tin",
         new DimensionProfile(DIMENSION_ID, 8, "minecraft:stone", new MinMaxInt(5, 10), new MinMaxInt(20, 55))
     );
 
-    this.register("zinc",
+    this.set("zinc",
         new DimensionProfile(DIMENSION_ID, 8, "minecraft:stone", new MinMaxInt(5, 10), new MinMaxInt(2, 40))
     );
 
     // alloy ores
 
     for (MetalAlloyType metalType : MetalAlloyType.values()) {
-      this.register(metalType.getName(), new DimensionProfile(0, 3, "minecraft:stone", new MinMaxInt(1, 2), new MinMaxInt(5, 30)));
+      this.set(metalType.getName(), new DimensionProfile(0, 3, "minecraft:stone", new MinMaxInt(1, 2), new MinMaxInt(5, 30)));
     }
   }
 
-  private void register(String name, DimensionProfile... profiles) {
-    this.register(DEFAULT_MOD_GENERATION_WEIGHT, name, profiles);
+  private void set(String name, DimensionProfile... profiles) {
+    this.set(DEFAULT_MOD_GENERATION_WEIGHT, name, profiles);
   }
 
-  private void register(int modGenerationWeight, String name, DimensionProfile... profiles) {
+  private void set(int modGenerationWeight, String name, DimensionProfile... profiles) {
     this.configEntryMap.put(name, new KorOreGenConfigEntry(modGenerationWeight, profiles));
   }
 
+  @Override
   public Map<String, KorOreGenConfigEntry> getConfigEntryMap() {
     return configEntryMap;
   }

@@ -79,16 +79,16 @@ import java.util.List;
 })
 
 @KorGenerateImageSlices(slices = {
-    @KorImageSliceEntry(col = 18, row = 8, target = "blocks/nether_ore_alloy_aluminum_brass", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 7, row = 8, target = "blocks/nether_ore_alloy_brass", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 15, row = 8, target = "blocks/nether_ore_alloy_bronze", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 14, row = 8, target = "blocks/nether_ore_alloy_constantan", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 9, row = 8, target = "blocks/nether_ore_alloy_electrum", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 12, row = 8, target = "blocks/nether_ore_alloy_enderium", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 8, row = 8, target = "blocks/nether_ore_alloy_invar", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 11, row = 8, target = "blocks/nether_ore_alloy_lumium", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 10, row = 8, target = "blocks/nether_ore_alloy_signalum", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 13, row = 8, target = "blocks/nether_ore_alloy_steel", source = "KorMetals.png")
+    @KorImageSliceEntry(col = 18, row = 6, target = "blocks/nether_ore_alloy_aluminum_brass", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 7, row = 6, target = "blocks/nether_ore_alloy_brass", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 15, row = 6, target = "blocks/nether_ore_alloy_bronze", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 14, row = 6, target = "blocks/nether_ore_alloy_constantan", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 9, row = 6, target = "blocks/nether_ore_alloy_electrum", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 12, row = 6, target = "blocks/nether_ore_alloy_enderium", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 8, row = 6, target = "blocks/nether_ore_alloy_invar", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 11, row = 6, target = "blocks/nether_ore_alloy_lumium", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 10, row = 6, target = "blocks/nether_ore_alloy_signalum", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 13, row = 6, target = "blocks/nether_ore_alloy_steel", source = "KorMetals.png")
 })
 
 public class BlockNetherOreAlloy extends

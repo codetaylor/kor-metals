@@ -43,6 +43,18 @@ public class ModuleOreConfigAdapter implements
     ConfigUtil.setBaseMetals(category, configuration, textConfigData, true);
     ConfigUtil.setAlloyMetals(category, configuration, textConfigData, false);
 
+    category = ModuleOre.Config.CATEGORY_BLOCK_ORE_END;
+
+    configuration.addCustomCategoryComment(
+        category,
+        "Turning off an ore here will prevent it from being loaded and also\n" +
+            "prevent the ore from spawning in the world. To edit each ore's properties,\n" +
+            "see nether_ore_properties.json."
+    );
+
+    ConfigUtil.setBaseMetals(category, configuration, textConfigData, true);
+    ConfigUtil.setAlloyMetals(category, configuration, textConfigData, false);
+
     category = ModuleOre.Config.CATEGORY_WORLDGEN_ORE_OVERWORLD;
 
     configuration.addCustomCategoryComment(
@@ -59,6 +71,17 @@ public class ModuleOreConfigAdapter implements
     configuration.addCustomCategoryComment(
         category,
         "Toggle ore generation for Dimension -1 (Nether). To edit ore\n" +
+            "generation properties, look in the worldgen folder."
+    );
+
+    ConfigUtil.setBaseMetals(category, configuration, textConfigData, true);
+    ConfigUtil.setAlloyMetals(category, configuration, textConfigData, false);
+
+    category = ModuleOre.Config.CATEGORY_WORLDGEN_ORE_END;
+
+    configuration.addCustomCategoryComment(
+        category,
+        "Toggle ore generation for Dimension 1 (End). To edit ore\n" +
             "generation properties, look in the worldgen folder."
     );
 

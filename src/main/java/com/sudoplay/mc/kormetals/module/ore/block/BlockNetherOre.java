@@ -73,14 +73,14 @@ import java.util.List;
 })
 
 @KorGenerateImageSlices(slices = {
-    @KorImageSliceEntry(col = 17, row = 8, target = "blocks/nether_ore_aluminum", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 1, row = 8, target = "blocks/nether_ore_copper", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 4, row = 8, target = "blocks/nether_ore_lead", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 5, row = 8, target = "blocks/nether_ore_nickel", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 6, row = 8, target = "blocks/nether_ore_platinum", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 3, row = 8, target = "blocks/nether_ore_silver", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 2, row = 8, target = "blocks/nether_ore_tin", source = "KorMetals.png"),
-    @KorImageSliceEntry(col = 16, row = 8, target = "blocks/nether_ore_zinc", source = "KorMetals.png")
+    @KorImageSliceEntry(col = 17, row = 6, target = "blocks/nether_ore_aluminum", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 1, row = 6, target = "blocks/nether_ore_copper", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 4, row = 6, target = "blocks/nether_ore_lead", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 5, row = 6, target = "blocks/nether_ore_nickel", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 6, row = 6, target = "blocks/nether_ore_platinum", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 3, row = 6, target = "blocks/nether_ore_silver", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 2, row = 6, target = "blocks/nether_ore_tin", source = "KorMetals.png"),
+    @KorImageSliceEntry(col = 16, row = 6, target = "blocks/nether_ore_zinc", source = "KorMetals.png")
 })
 
 public class BlockNetherOre extends

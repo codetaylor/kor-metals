@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "ctkormetals:blocks/end_ore_alloy_invar"
+  }
+}

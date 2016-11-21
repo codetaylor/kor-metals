@@ -14,37 +14,31 @@ import java.util.Map;
 /**
  * Created by sk3lls on 11/19/2016.
  */
-public class ConfigNetherOreGen extends
+public class ConfigEndOreGen extends
     KorConfigObject implements
     KorConfigOreGen {
 
-  private static final int DIMENSION_ID = -1;
+  private static final int DIMENSION_ID = 1;
   private static final int DEFAULT_MOD_GENERATION_WEIGHT = 0;
 
-  @SerializedName("nether_ore_gen")
+  @SerializedName("end_ore_gen")
   private Map<String, KorOreGenConfigEntry> configEntryMap;
 
-  public ConfigNetherOreGen() {
+  public ConfigEndOreGen() {
     this.configEntryMap = new HashMap<>();
 
     // normal ores
 
     for (MetalType metalType : MetalType.values()) {
       this.set(metalType.getName(),
-          new DimensionProfile(DIMENSION_ID, 8, "minecraft:netherrack", new MinMaxInt(8, 16), new MinMaxInt(0, 128))
+          new DimensionProfile(DIMENSION_ID, 8, "minecraft:end_stone", new MinMaxInt(8, 16), new MinMaxInt(0, 255))
       );
     }
 
     // alloy ores
 
     for (MetalAlloyType metalType : MetalAlloyType.values()) {
-
-      if (metalType == MetalAlloyType.Lumium) {
-        this.set(metalType.getName(), new DimensionProfile(DIMENSION_ID, 3, "minecraft:glowstone", new MinMaxInt(4, 8), new MinMaxInt(0, 128)));
-
-      } else {
-        this.set(metalType.getName(), new DimensionProfile(DIMENSION_ID, 3, "minecraft:netherrack", new MinMaxInt(4, 8), new MinMaxInt(0, 128)));
-      }
+      this.set(metalType.getName(), new DimensionProfile(DIMENSION_ID, 3, "minecraft:end_stone", new MinMaxInt(4, 8), new MinMaxInt(0, 255)));
     }
   }
 

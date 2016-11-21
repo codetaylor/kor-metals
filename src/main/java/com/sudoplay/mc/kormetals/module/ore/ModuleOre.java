@@ -4,13 +4,11 @@ import com.google.common.eventbus.Subscribe;
 import com.sudoplay.mc.kor.spi.IKorModule;
 import com.sudoplay.mc.kor.spi.event.internal.*;
 import com.sudoplay.mc.kormetals.KorMetalsCreativeTab;
-import com.sudoplay.mc.kormetals.module.ore.block.BlockNetherOre;
-import com.sudoplay.mc.kormetals.module.ore.block.BlockNetherOreAlloy;
-import com.sudoplay.mc.kormetals.module.ore.block.BlockOre;
-import com.sudoplay.mc.kormetals.module.ore.block.BlockOreAlloy;
+import com.sudoplay.mc.kormetals.module.ore.block.*;
 import com.sudoplay.mc.kormetals.module.ore.recipe.RecipeRegistrationDelegate;
+import com.sudoplay.mc.kormetals.module.ore.worldgen.WorldGenEndOreRegistrationDelegate;
 import com.sudoplay.mc.kormetals.module.ore.worldgen.WorldGenNetherOreRegistrationDelegate;
-import com.sudoplay.mc.kormetals.module.ore.worldgen.WorldGenOreRegistrationDelegate;
+import com.sudoplay.mc.kormetals.module.ore.worldgen.WorldGenOverworldOreRegistrationDelegate;
 
 import java.io.File;
 
@@ -26,8 +24,10 @@ public class ModuleOre implements
     public static final String FILENAME = MODULE_ID + "/" + MODULE_ID + ".cfg";
     public static final String CATEGORY_BLOCK_ORE_OVERWORLD = "1:block:ore_overworld";
     public static final String CATEGORY_BLOCK_ORE_NETHER = "1:block:ore_nether";
+    public static final String CATEGORY_BLOCK_ORE_END = "1:block:ore_end";
     public static final String CATEGORY_WORLDGEN_ORE_OVERWORLD = "1:worldgen:ore_overworld";
     public static final String CATEGORY_WORLDGEN_ORE_NETHER = "1:worldgen:ore_nether";
+    public static final String CATEGORY_WORLDGEN_ORE_END = "1:worldgen:ore_end";
   }
 
   @Override
@@ -61,7 +61,9 @@ public class ModuleOre implements
         BlockOre.class,
         BlockOreAlloy.class,
         BlockNetherOre.class,
-        BlockNetherOreAlloy.class
+        BlockNetherOreAlloy.class,
+        BlockEndOre.class,
+        BlockEndOreAlloy.class
     );
   }
 
@@ -69,8 +71,9 @@ public class ModuleOre implements
   public void onRegisterWorldGenEvent(OnRegisterWorldGenEvent event) {
     event.getRegistryService().register(
 
-        WorldGenOreRegistrationDelegate.class,
-        WorldGenNetherOreRegistrationDelegate.class
+        WorldGenOverworldOreRegistrationDelegate.class,
+        WorldGenNetherOreRegistrationDelegate.class,
+        WorldGenEndOreRegistrationDelegate.class
     );
   }
 
