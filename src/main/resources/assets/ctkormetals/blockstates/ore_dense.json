@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "type=aluminum": {
+      "model": "ctkormetals:ore_dense_aluminum"
+    },
+    "type=copper": {
+      "model": "ctkormetals:ore_dense_copper"
+    },
+    "type=lead": {
+      "model": "ctkormetals:ore_dense_lead"
+    },
+    "type=nickel": {
+      "model": "ctkormetals:ore_dense_nickel"
+    },
+    "type=platinum": {
+      "model": "ctkormetals:ore_dense_platinum"
+    },
+    "type=silver": {
+      "model": "ctkormetals:ore_dense_silver"
+    },
+    "type=tin": {
+      "model": "ctkormetals:ore_dense_tin"
+    },
+    "type=zinc": {
+      "model": "ctkormetals:ore_dense_zinc"
+    }
+  }
+}

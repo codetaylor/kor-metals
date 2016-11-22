@@ -31,14 +31,14 @@ public class ConfigEndOreGen extends
 
     for (MetalType metalType : MetalType.values()) {
       this.set(metalType.getName(),
-          new DimensionProfile(DIMENSION_ID, 8, "minecraft:end_stone", new MinMaxInt(8, 16), new MinMaxInt(0, 255))
+          new DenseDimensionProfile(DIMENSION_ID, 8, "minecraft:end_stone", new MinMaxInt(8, 16), new MinMaxInt(0, 255), 0.04f)
       );
     }
 
     // alloy ores
 
     for (MetalAlloyType metalType : MetalAlloyType.values()) {
-      this.set(metalType.getName(), new DimensionProfile(DIMENSION_ID, 3, "minecraft:end_stone", new MinMaxInt(4, 8), new MinMaxInt(0, 255)));
+      this.set(metalType.getName(), new DenseDimensionProfile(DIMENSION_ID, 3, "minecraft:end_stone", new MinMaxInt(4, 8), new MinMaxInt(0, 255), 0.04f));
     }
   }
 

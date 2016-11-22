@@ -22,12 +22,24 @@ public class ModuleOre implements
 
   public static class Config {
     public static final String FILENAME = MODULE_ID + "/" + MODULE_ID + ".cfg";
+
     public static final String CATEGORY_BLOCK_ORE_OVERWORLD = "1:block:ore_overworld";
+    public static final String CATEGORY_BLOCK_ORE_DENSE_OVERWORLD = "1:block:ore_dense_overworld";
+
     public static final String CATEGORY_BLOCK_ORE_NETHER = "1:block:ore_nether";
+    public static final String CATEGORY_BLOCK_ORE_DENSE_NETHER = "1:block:ore_dense_nether";
+
     public static final String CATEGORY_BLOCK_ORE_END = "1:block:ore_end";
+    public static final String CATEGORY_BLOCK_ORE_DENSE_END = "1:block:ore_dense_end";
+
     public static final String CATEGORY_WORLDGEN_ORE_OVERWORLD = "1:worldgen:ore_overworld";
+    public static final String CATEGORY_WORLDGEN_ORE_DENSE_OVERWORLD = "1:worldgen:ore_dense_overworld";
+
     public static final String CATEGORY_WORLDGEN_ORE_NETHER = "1:worldgen:ore_nether";
+    public static final String CATEGORY_WORLDGEN_ORE_DENSE_NETHER = "1:worldgen:ore_dense_nether";
+
     public static final String CATEGORY_WORLDGEN_ORE_END = "1:worldgen:ore_end";
+    public static final String CATEGORY_WORLDGEN_ORE_DENSE_END = "1:worldgen:ore_dense_end";
   }
 
   @Override
@@ -59,9 +71,13 @@ public class ModuleOre implements
     event.getRegistryService().register(
 
         BlockOre.class,
+        BlockOreDense.class,
         BlockOreAlloy.class,
+        BlockOreAlloyDense.class,
+
         BlockNetherOre.class,
         BlockNetherOreAlloy.class,
+
         BlockEndOre.class,
         BlockEndOreAlloy.class
     );

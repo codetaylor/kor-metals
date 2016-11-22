@@ -9,6 +9,8 @@ import com.sudoplay.mc.kor.spi.world.KorOreGenConfigEntry;
 import com.sudoplay.mc.kormetals.module.ore.ModuleOre;
 import com.sudoplay.mc.kormetals.module.ore.block.BlockOre;
 import com.sudoplay.mc.kormetals.module.ore.block.BlockOreAlloy;
+import com.sudoplay.mc.kormetals.module.ore.block.BlockOreAlloyDense;
+import com.sudoplay.mc.kormetals.module.ore.block.BlockOreDense;
 import com.sudoplay.mc.kormetals.module.ore.config.ConfigOreGen;
 
 /**
@@ -25,14 +27,29 @@ public class WorldGenOverworldOreRegistrationDelegate extends
       @KorJsonConfig(path = ModuleOre.MODULE_ID, file = "ore_gen.json") ConfigOreGen config,
       @KorTextConfig(file = ModuleOre.Config.FILENAME) TextConfigData textConfigData
   ) {
-    super(config, BlockOre.TYPE, kor.get(BlockOre.class), BlockOreAlloy.TYPE, kor.get(BlockOreAlloy.class));
+    super(
+        config,
+        BlockOre.TYPE,
+        kor.get(BlockOre.class),
+        kor.get(BlockOreDense.class),
+        BlockOreAlloy.TYPE,
+        kor.get(BlockOreAlloy.class),
+        kor.get(BlockOreAlloyDense.class)
+    );
     this.textConfigData = textConfigData;
   }
 
   @Override
-  public boolean isRegistrationPermitted(KorOreGenConfigEntry configEntry, String name) {
+  public boolean isOreAllowed(KorOreGenConfigEntry configEntry, String name) {
     return configEntry != null
         && textConfigData.getCategory(ModuleOre.Config.CATEGORY_WORLDGEN_ORE_OVERWORLD).getBoolean(name)
         && textConfigData.getCategory(ModuleOre.Config.CATEGORY_BLOCK_ORE_OVERWORLD).getBoolean(name);
+  }
+
+  @Override
+  protected boolean isDenseOreAllowed(KorOreGenConfigEntry configEntry, String name) {
+    return configEntry != null
+        && textConfigData.getCategory(ModuleOre.Config.CATEGORY_WORLDGEN_ORE_DENSE_OVERWORLD).getBoolean(name)
+        && textConfigData.getCategory(ModuleOre.Config.CATEGORY_BLOCK_ORE_DENSE_OVERWORLD).getBoolean(name);
   }
 }

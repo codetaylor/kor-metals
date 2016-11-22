@@ -31,7 +31,31 @@ public class ModuleOreConfigAdapter implements
     ConfigUtil.setBaseMetals(category, configuration, textConfigData, true);
     ConfigUtil.setAlloyMetals(category, configuration, textConfigData, false);
 
+    category = ModuleOre.Config.CATEGORY_BLOCK_ORE_DENSE_OVERWORLD;
+
+    configuration.addCustomCategoryComment(
+        category,
+        "Turning off an ore here will prevent it from being loaded and also\n" +
+            "prevent the ore from spawning in the world. To edit each ore's properties,\n" +
+            "see ore_properties.json."
+    );
+
+    ConfigUtil.setBaseMetals(category, configuration, textConfigData, true);
+    ConfigUtil.setAlloyMetals(category, configuration, textConfigData, false);
+
     category = ModuleOre.Config.CATEGORY_BLOCK_ORE_NETHER;
+
+    configuration.addCustomCategoryComment(
+        category,
+        "Turning off an ore here will prevent it from being loaded and also\n" +
+            "prevent the ore from spawning in the world. To edit each ore's properties,\n" +
+            "see nether_ore_properties.json."
+    );
+
+    ConfigUtil.setBaseMetals(category, configuration, textConfigData, true);
+    ConfigUtil.setAlloyMetals(category, configuration, textConfigData, false);
+
+    category = ModuleOre.Config.CATEGORY_BLOCK_ORE_DENSE_NETHER;
 
     configuration.addCustomCategoryComment(
         category,
@@ -49,7 +73,19 @@ public class ModuleOreConfigAdapter implements
         category,
         "Turning off an ore here will prevent it from being loaded and also\n" +
             "prevent the ore from spawning in the world. To edit each ore's properties,\n" +
-            "see nether_ore_properties.json."
+            "see end_ore_properties.json."
+    );
+
+    ConfigUtil.setBaseMetals(category, configuration, textConfigData, true);
+    ConfigUtil.setAlloyMetals(category, configuration, textConfigData, false);
+
+    category = ModuleOre.Config.CATEGORY_BLOCK_ORE_DENSE_END;
+
+    configuration.addCustomCategoryComment(
+        category,
+        "Turning off an ore here will prevent it from being loaded and also\n" +
+            "prevent the ore from spawning in the world. To edit each ore's properties,\n" +
+            "see end_ore_properties.json."
     );
 
     ConfigUtil.setBaseMetals(category, configuration, textConfigData, true);
@@ -60,6 +96,17 @@ public class ModuleOreConfigAdapter implements
     configuration.addCustomCategoryComment(
         category,
         "Toggle ore generation for Dimension 0 (Overworld). To edit ore\n" +
+            "generation properties, look in the worldgen folder."
+    );
+
+    ConfigUtil.setBaseMetals(category, configuration, textConfigData, true);
+    ConfigUtil.setAlloyMetals(category, configuration, textConfigData, false);
+
+    category = ModuleOre.Config.CATEGORY_WORLDGEN_ORE_DENSE_OVERWORLD;
+
+    configuration.addCustomCategoryComment(
+        category,
+        "Toggle dense ore generation for Dimension 0 (Overworld). To edit ore\n" +
             "generation properties, look in the worldgen folder."
     );
 
@@ -77,11 +124,33 @@ public class ModuleOreConfigAdapter implements
     ConfigUtil.setBaseMetals(category, configuration, textConfigData, true);
     ConfigUtil.setAlloyMetals(category, configuration, textConfigData, false);
 
+    category = ModuleOre.Config.CATEGORY_WORLDGEN_ORE_DENSE_NETHER;
+
+    configuration.addCustomCategoryComment(
+        category,
+        "Toggle dense ore generation for Dimension -1 (Nether). To edit ore\n" +
+            "generation properties, look in the worldgen folder."
+    );
+
+    ConfigUtil.setBaseMetals(category, configuration, textConfigData, true);
+    ConfigUtil.setAlloyMetals(category, configuration, textConfigData, false);
+
     category = ModuleOre.Config.CATEGORY_WORLDGEN_ORE_END;
 
     configuration.addCustomCategoryComment(
         category,
         "Toggle ore generation for Dimension 1 (End). To edit ore\n" +
+            "generation properties, look in the worldgen folder."
+    );
+
+    ConfigUtil.setBaseMetals(category, configuration, textConfigData, true);
+    ConfigUtil.setAlloyMetals(category, configuration, textConfigData, false);
+
+    category = ModuleOre.Config.CATEGORY_WORLDGEN_ORE_DENSE_END;
+
+    configuration.addCustomCategoryComment(
+        category,
+        "Toggle dense ore generation for Dimension 1 (End). To edit ore\n" +
             "generation properties, look in the worldgen folder."
     );
 

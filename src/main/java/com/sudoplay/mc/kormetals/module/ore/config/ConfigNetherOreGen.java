@@ -31,7 +31,7 @@ public class ConfigNetherOreGen extends
 
     for (MetalType metalType : MetalType.values()) {
       this.set(metalType.getName(),
-          new DimensionProfile(DIMENSION_ID, 8, "minecraft:netherrack", new MinMaxInt(8, 16), new MinMaxInt(0, 128))
+          new DenseDimensionProfile(DIMENSION_ID, 8, "minecraft:netherrack", new MinMaxInt(8, 16), new MinMaxInt(0, 128), 0.02f)
       );
     }
 
@@ -40,10 +40,10 @@ public class ConfigNetherOreGen extends
     for (MetalAlloyType metalType : MetalAlloyType.values()) {
 
       if (metalType == MetalAlloyType.Lumium) {
-        this.set(metalType.getName(), new DimensionProfile(DIMENSION_ID, 3, "minecraft:glowstone", new MinMaxInt(4, 8), new MinMaxInt(0, 128)));
+        this.set(metalType.getName(), new DenseDimensionProfile(DIMENSION_ID, 3, "minecraft:glowstone", new MinMaxInt(4, 8), new MinMaxInt(0, 128), 0.02f));
 
       } else {
-        this.set(metalType.getName(), new DimensionProfile(DIMENSION_ID, 3, "minecraft:netherrack", new MinMaxInt(4, 8), new MinMaxInt(0, 128)));
+        this.set(metalType.getName(), new DenseDimensionProfile(DIMENSION_ID, 3, "minecraft:netherrack", new MinMaxInt(4, 8), new MinMaxInt(0, 128), 0.02f));
       }
     }
   }

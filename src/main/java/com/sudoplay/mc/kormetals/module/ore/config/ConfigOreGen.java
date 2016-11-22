@@ -29,45 +29,45 @@ public class ConfigOreGen extends
     // normal ores
 
     this.set("aluminum",
-        new DimensionProfile(DIMENSION_ID, 10, "minecraft:stone", new MinMaxInt(8, 16), new MinMaxInt(40, 75)),
-        new DimensionProfile(DIMENSION_ID, 10, "minecraft:stone", new MinMaxInt(3, 8), new MinMaxInt(48, 96))
+        new DenseDimensionProfile(DIMENSION_ID, 10, "minecraft:stone", new MinMaxInt(8, 16), new MinMaxInt(40, 75), 0.01f),
+        new DenseDimensionProfile(DIMENSION_ID, 10, "minecraft:stone", new MinMaxInt(3, 8), new MinMaxInt(48, 96), 0.01f)
     );
 
     this.set("copper",
-        new DimensionProfile(DIMENSION_ID, 10, "minecraft:stone", new MinMaxInt(8, 16), new MinMaxInt(40, 75)),
-        new DimensionProfile(DIMENSION_ID, 10, "minecraft:stone", new MinMaxInt(3, 8), new MinMaxInt(48, 96))
+        new DenseDimensionProfile(DIMENSION_ID, 10, "minecraft:stone", new MinMaxInt(8, 16), new MinMaxInt(40, 75), 0.01f),
+        new DenseDimensionProfile(DIMENSION_ID, 10, "minecraft:stone", new MinMaxInt(3, 8), new MinMaxInt(48, 96), 0.01f)
     );
 
     this.set("lead",
-        new DimensionProfile(DIMENSION_ID, 5, "minecraft:stone", new MinMaxInt(3, 6), new MinMaxInt(2, 35)),
-        new DimensionProfile(DIMENSION_ID, 12, "minecraft:stone", new MinMaxInt(2, 3), new MinMaxInt(20, 25))
+        new DenseDimensionProfile(DIMENSION_ID, 5, "minecraft:stone", new MinMaxInt(3, 6), new MinMaxInt(2, 35), 0.01f),
+        new DenseDimensionProfile(DIMENSION_ID, 12, "minecraft:stone", new MinMaxInt(2, 3), new MinMaxInt(20, 25), 0.01f)
     );
 
     this.set("nickel",
-        new DimensionProfile(DIMENSION_ID, 3, "minecraft:stone", new MinMaxInt(1, 3), new MinMaxInt(5, 20))
+        new DenseDimensionProfile(DIMENSION_ID, 3, "minecraft:stone", new MinMaxInt(1, 3), new MinMaxInt(5, 20), 0.01f)
     );
 
     this.set("platinum",
-        new DimensionProfile(DIMENSION_ID, 3, "minecraft:stone", new MinMaxInt(1, 2), new MinMaxInt(11, 28))
+        new DenseDimensionProfile(DIMENSION_ID, 3, "minecraft:stone", new MinMaxInt(1, 2), new MinMaxInt(11, 28), 0.01f)
     );
 
     this.set("silver",
-        new DimensionProfile(DIMENSION_ID, 5, "minecraft:stone", new MinMaxInt(1, 2), new MinMaxInt(5, 30)),
-        new DimensionProfile(DIMENSION_ID, 2, "minecraft:stone", new MinMaxInt(6, 8), new MinMaxInt(10, 35))
+        new DenseDimensionProfile(DIMENSION_ID, 5, "minecraft:stone", new MinMaxInt(1, 2), new MinMaxInt(5, 30), 0.01f),
+        new DenseDimensionProfile(DIMENSION_ID, 2, "minecraft:stone", new MinMaxInt(6, 8), new MinMaxInt(10, 35), 0.01f)
     );
 
     this.set("tin",
-        new DimensionProfile(DIMENSION_ID, 8, "minecraft:stone", new MinMaxInt(5, 10), new MinMaxInt(20, 55))
+        new DenseDimensionProfile(DIMENSION_ID, 8, "minecraft:stone", new MinMaxInt(5, 10), new MinMaxInt(20, 55), 0.01f)
     );
 
     this.set("zinc",
-        new DimensionProfile(DIMENSION_ID, 8, "minecraft:stone", new MinMaxInt(5, 10), new MinMaxInt(2, 40))
+        new DenseDimensionProfile(DIMENSION_ID, 8, "minecraft:stone", new MinMaxInt(5, 10), new MinMaxInt(2, 40), 0.01f)
     );
 
     // alloy ores
 
     for (MetalAlloyType metalType : MetalAlloyType.values()) {
-      this.set(metalType.getName(), new DimensionProfile(0, 3, "minecraft:stone", new MinMaxInt(1, 2), new MinMaxInt(5, 30)));
+      this.set(metalType.getName(), new DenseDimensionProfile(0, 3, "minecraft:stone", new MinMaxInt(1, 2), new MinMaxInt(5, 30), 0.01f));
     }
   }
 
