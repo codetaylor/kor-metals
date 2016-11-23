@@ -16,7 +16,7 @@ import com.sudoplay.mc.kormetals.KorMetalsCreativeTab;
 import com.sudoplay.mc.kormetals.module.ore.ModuleOre;
 import com.sudoplay.mc.kormetals.module.ore.config.ConfigBlockOreDense;
 import com.sudoplay.mc.kormetals.shared.MetalType;
-import com.sudoplay.mc.kormetals.util.Util;
+import com.sudoplay.mc.kor.spi.oredict.OreDictUtil;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
@@ -145,7 +145,7 @@ public class BlockOreDense extends
   public List<KorOreDictionaryEntry> getKorOreDictionaryEntries(@Nonnull List<KorOreDictionaryEntry> store) {
 
     for (MetalType metalType : TYPE.getAllowedValues()) {
-      String name = "dense" + Util.getOreDictName(metalType.getName());
+      String name = "dense" + OreDictUtil.convertSnakeCaseToCamelCase(metalType.getName());
       store.add(new KorOreDictionaryEntry(name, metalType.getMeta()));
     }
     return store;

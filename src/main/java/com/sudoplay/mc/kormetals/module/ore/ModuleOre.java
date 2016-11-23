@@ -48,7 +48,7 @@ public class ModuleOre implements
   }
 
   @Subscribe
-  public void onLoadConfigurations(OnLoadConfigurationsEvent event) {
+  public void onLoadConfigurationsEvent(OnLoadConfigurationsEvent event) {
     event.getConfigurationService()
 
         .loadConfiguration(

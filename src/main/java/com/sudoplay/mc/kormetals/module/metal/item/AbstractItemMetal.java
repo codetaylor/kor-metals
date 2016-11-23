@@ -5,7 +5,7 @@ import com.sudoplay.mc.kor.spi.item.ISubType;
 import com.sudoplay.mc.kor.spi.item.KorSubTypedItem;
 import com.sudoplay.mc.kor.spi.registry.KorOreDictionaryEntry;
 import com.sudoplay.mc.kormetals.module.metal.ModuleMetal;
-import com.sudoplay.mc.kormetals.util.Util;
+import com.sudoplay.mc.kor.spi.oredict.OreDictUtil;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -55,7 +55,7 @@ import java.util.List;
   public List<KorOreDictionaryEntry> getKorOreDictionaryEntries(@Nonnull List<KorOreDictionaryEntry> store) {
 
     for (ISubType subType : this.getSubTypes()) {
-      String name = this.oreDictPrefix + Util.getOreDictName(subType.getName());
+      String name = this.oreDictPrefix + OreDictUtil.convertSnakeCaseToCamelCase(subType.getName());
       store.add(new KorOreDictionaryEntry(name, subType.getMeta()));
     }
     return store;

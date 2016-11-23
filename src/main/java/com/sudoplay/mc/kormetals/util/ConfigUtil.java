@@ -1,6 +1,7 @@
 package com.sudoplay.mc.kormetals.util;
 
 import com.sudoplay.mc.kor.core.config.text.TextConfigData;
+import com.sudoplay.mc.kor.spi.config.KorConfigUtil;
 import com.sudoplay.mc.kormetals.shared.MetalAlloyType;
 import com.sudoplay.mc.kormetals.shared.MetalType;
 import net.minecraftforge.common.config.Configuration;
@@ -13,24 +14,19 @@ public class ConfigUtil {
   public static void setAlloyMetals(String category, Configuration configuration, TextConfigData textConfigData, boolean enabled) {
 
     for (MetalAlloyType metalAlloyType : MetalAlloyType.values()) {
-      ConfigUtil.adaptBoolean(category, metalAlloyType.getName(), enabled, configuration, textConfigData);
+      KorConfigUtil.adaptBoolean(category, metalAlloyType.getName(), enabled, configuration, textConfigData);
     }
   }
 
   public static void setBaseMetals(String category, Configuration configuration, TextConfigData textConfigData, boolean enabled) {
 
     for (MetalType metalType : MetalType.values()) {
-      ConfigUtil.adaptBoolean(category, metalType.getName(), enabled, configuration, textConfigData);
+      KorConfigUtil.adaptBoolean(category, metalType.getName(), enabled, configuration, textConfigData);
     }
   }
 
   public static void setAllMetals(String category, Configuration configuration, TextConfigData textConfigData, boolean enabled) {
     ConfigUtil.setBaseMetals(category, configuration, textConfigData, enabled);
     ConfigUtil.setAlloyMetals(category, configuration, textConfigData, enabled);
-  }
-
-  private static void adaptBoolean(String category, String key, boolean defaultValue, Configuration configuration, TextConfigData textConfigData) {
-    boolean value = configuration.get(category, key, defaultValue).getBoolean();
-    textConfigData.getCategory(category).putBoolean(key, value);
   }
 }

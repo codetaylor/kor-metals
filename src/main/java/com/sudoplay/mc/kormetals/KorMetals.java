@@ -13,8 +13,7 @@ import static net.minecraftforge.fml.common.Mod.Instance;
 @net.minecraftforge.fml.common.Mod(
     modid = KorMetals.MOD_ID,
     version = KorMetals.VERSION,
-    name = KorMetals.NAME,
-    dependencies = "required-after:MineTweaker3@[1.10.2-3.0.14,);"
+    name = KorMetals.NAME
 )
 public class KorMetals extends
     Kor {
