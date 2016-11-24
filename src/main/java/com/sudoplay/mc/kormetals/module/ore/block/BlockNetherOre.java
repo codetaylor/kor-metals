@@ -17,7 +17,7 @@ import com.sudoplay.mc.kormetals.KorMetalsCreativeTab;
 import com.sudoplay.mc.kormetals.module.ore.ModuleOre;
 import com.sudoplay.mc.kormetals.module.ore.config.ConfigBlockNetherOre;
 import com.sudoplay.mc.kormetals.shared.MetalType;
-import com.sudoplay.mc.kor.spi.oredict.OreDictUtil;
+import com.sudoplay.mc.kor.spi.util.StringUtils;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
@@ -145,7 +145,7 @@ public class BlockNetherOre extends
   public List<KorOreDictionaryEntry> getKorOreDictionaryEntries(@Nonnull List<KorOreDictionaryEntry> store) {
 
     for (MetalType metalType : TYPE.getAllowedValues()) {
-      String name = "ore" + OreDictUtil.convertSnakeCaseToCamelCase(metalType.getName());
+      String name = "ore" + StringUtils.convertSnakeCaseToCamelCase(metalType.getName());
       store.add(new KorOreDictionaryEntry(name, metalType.getMeta()));
     }
     return store;

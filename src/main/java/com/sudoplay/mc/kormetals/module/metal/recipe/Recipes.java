@@ -7,7 +7,7 @@ import com.sudoplay.mc.kor.core.recipe.shapeless.RecipeShapeless;
 import com.sudoplay.mc.kormetals.KorMetals;
 import com.sudoplay.mc.kormetals.shared.MetalAlloyType;
 import com.sudoplay.mc.kormetals.shared.MetalType;
-import com.sudoplay.mc.kor.spi.oredict.OreDictUtil;
+import com.sudoplay.mc.kor.spi.util.StringUtils;
 
 /**
  * Created by sk3lls on 11/19/2016.
@@ -24,7 +24,7 @@ public class Recipes extends
       int meta = metalType.getMeta();
       this.recipeShapelessMap.put(String.format("ingot_%s to nugget_%s", name, name), new RecipeShapeless(
           KorMetals.MOD_ID + ":nugget:" + meta + " * 9",
-          "ore:ingot" + OreDictUtil.convertSnakeCaseToCamelCase(name)
+          "ore:ingot" + StringUtils.convertSnakeCaseToCamelCase(name)
       ));
     }
 
@@ -33,14 +33,14 @@ public class Recipes extends
       int meta = metalType.getMeta();
       this.recipeShapelessMap.put(String.format("ingot_alloy_%s to nugget_alloy_%s", name, name), new RecipeShapeless(
           KorMetals.MOD_ID + ":nugget_alloy:" + meta + " * 9",
-          "ore:ingot" + OreDictUtil.convertSnakeCaseToCamelCase(name)
+          "ore:ingot" + StringUtils.convertSnakeCaseToCamelCase(name)
       ));
     }
 
     for (MetalType metalType : MetalType.values()) {
       String name = metalType.getName();
       int meta = metalType.getMeta();
-      String oreNuggetName = "ore:nugget" + OreDictUtil.convertSnakeCaseToCamelCase(name);
+      String oreNuggetName = "ore:nugget" + StringUtils.convertSnakeCaseToCamelCase(name);
       this.recipeShapedMap.put(String.format("nugget_%s to ingot_%s", name, name), new RecipeShaped(
           KorMetals.MOD_ID + ":ingot:" + meta,
           new String[]{
@@ -54,7 +54,7 @@ public class Recipes extends
     for (MetalAlloyType metalType : MetalAlloyType.values()) {
       String name = metalType.getName();
       int meta = metalType.getMeta();
-      String oreNuggetName = "ore:nugget" + OreDictUtil.convertSnakeCaseToCamelCase(name);
+      String oreNuggetName = "ore:nugget" + StringUtils.convertSnakeCaseToCamelCase(name);
       this.recipeShapedMap.put(String.format("nugget_alloy_%s to ingot_alloy_%s", name, name), new RecipeShaped(
           KorMetals.MOD_ID + ":ingot_alloy:" + meta,
           new String[]{
@@ -72,7 +72,7 @@ public class Recipes extends
       int meta = metalType.getMeta();
       this.recipeShapelessMap.put(String.format("block_%s to ingot_%s", name, name), new RecipeShapeless(
           KorMetals.MOD_ID + ":ingot:" + meta + " * 9",
-          "ore:block" + OreDictUtil.convertSnakeCaseToCamelCase(name)
+          "ore:block" + StringUtils.convertSnakeCaseToCamelCase(name)
       ));
     }
 
@@ -81,14 +81,14 @@ public class Recipes extends
       int meta = metalType.getMeta();
       this.recipeShapelessMap.put(String.format("block_alloy_%s to ingot_alloy_%s", name, name), new RecipeShapeless(
           KorMetals.MOD_ID + ":ingot_alloy:" + meta + " * 9",
-          "ore:block" + OreDictUtil.convertSnakeCaseToCamelCase(name)
+          "ore:block" + StringUtils.convertSnakeCaseToCamelCase(name)
       ));
     }
 
     for (MetalType metalType : MetalType.values()) {
       String name = metalType.getName();
       int meta = metalType.getMeta();
-      String oreIngotName = "ore:ingot" + OreDictUtil.convertSnakeCaseToCamelCase(name);
+      String oreIngotName = "ore:ingot" + StringUtils.convertSnakeCaseToCamelCase(name);
       this.recipeShapedMap.put(String.format("ingot_%s to block_%s", name, name), new RecipeShaped(
           KorMetals.MOD_ID + ":block:" + meta,
           new String[]{
@@ -102,7 +102,7 @@ public class Recipes extends
     for (MetalAlloyType metalType : MetalAlloyType.values()) {
       String name = metalType.getName();
       int meta = metalType.getMeta();
-      String oreIngotName = "ore:ingot" + OreDictUtil.convertSnakeCaseToCamelCase(name);
+      String oreIngotName = "ore:ingot" + StringUtils.convertSnakeCaseToCamelCase(name);
       this.recipeShapedMap.put(String.format("ingot_alloy_%s to block_alloy_%s", name, name), new RecipeShaped(
           KorMetals.MOD_ID + ":block_alloy:" + meta,
           new String[]{
